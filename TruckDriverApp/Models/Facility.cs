@@ -29,9 +29,6 @@ namespace TruckDriverApp.Models
         [Display(Name = "Overnight Parking Available")]
         public bool OvernightParking { get; set; }
 
-        [ForeignKey("Driver Id")]
-        public int? DriverId { get; set; }
-
         [Display(Name = "Notes")]
         public string Notes { get; set; }
         public double Latitude { get; set; }
@@ -57,5 +54,13 @@ namespace TruckDriverApp.Models
 
         public DateTime EntryTime { get; set; }
         public DateTime ExitTime { get; set; }
+
+        [ForeignKey("ProfileID")]
+
+        [Display(Name = "Profile ID")]
+        public int? ProfileID { get; set; }
+
+        [ForeignKey("Driver Id")]
+        public int? DriverId { get; set; }
     }
 }

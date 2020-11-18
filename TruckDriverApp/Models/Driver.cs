@@ -42,5 +42,10 @@ namespace TruckDriverApp.Models
 
         [Display(Name = "Vehicle ID")]
         public int? VehicleID { get; set; }
+
+        [ForeignKey("ProfileID")]
+
+        [Display(Name = "Profile ID")]
+        public int? ProfileID { get; set; }
     }
 }
