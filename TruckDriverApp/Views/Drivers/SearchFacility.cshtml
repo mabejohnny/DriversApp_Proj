@@ -1,0 +1,148 @@
+﻿@model IEnumerable<TruckDriverApp.Models.Facility>
+
+@{
+    ViewData["Title"] = "SearchFacility";
+}
+
+<h1>SearchFacility</h1>
+
+<p>
+    Name  : @Html.TextBox("SearchName")<br />
+    <input type="submit" value="SearchFacility" />
+</p>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OvernightParking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParkingOptions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherOptions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriversLounge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasShowers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EntryTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExitTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfileId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriverId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OvernightParking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParkingOptions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodDelivery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherOptions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriversLounge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasShowers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExitTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfileId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

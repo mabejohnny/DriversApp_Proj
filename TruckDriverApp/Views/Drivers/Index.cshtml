@@ -11,6 +11,7 @@
 
 
 
+
 <p>
     @Html.ActionLink("Your Details", "Details", new { id = Model.Id })
 </p>
@@ -24,9 +25,9 @@
     @Html.ActionLink("Add a Vehicle", "AddVehicle", new { id = Model.Id })
 </p>
 <p>
-    @Html.ActionLink("Search for Facilities", "ExtraOneTimePickup", new { id = Model.Id })
+    @Html.ActionLink("View All Facilities", "AllFacilitys", new { id = Model.Id })
 </p>
 <p>
-    @Html.ActionLink("Check Your Balance", "CheckBalance", new { id = Model.Id })
+    @Html.ActionLink("Search By Zip Code", "SearchFacility", new { id = Model.Id })
 </p>
 

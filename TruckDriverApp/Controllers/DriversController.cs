@@ -256,6 +256,23 @@ namespace TruckDriverApp.Controllers
             return View(facility);
         }
 
+        //GET: DriversController/SearchFacility/
+        public ActionResult SearchFacility()
+        {
+            return View();
+
+        }
+
+        //POST: DriversController/SearchFacility/
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SearchFacility(string zipCode)
+        {
+            var facility = _context.Facilitys.Where(c => c.ZipCode == zipCode).FirstOrDefault();
+
+            return View(facility);
+        }
+
 
     }
 }
