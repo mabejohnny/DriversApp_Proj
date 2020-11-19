@@ -222,5 +222,26 @@ namespace TruckDriverApp.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        //GET: DriversController/ViewVehicles/
+        public ActionResult ViewVehicles(int? id)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (driver == null)
+            {
+                return NotFound();
+            }
+            var vehicles = _context.Vehicles.Where(c => c.DriverId == driver.Id);
+
+            if (vehicles == null)
+            {
+                return NotFound();
+            }
+            return View(vehicles);
+
+        }
+
     }
 }
