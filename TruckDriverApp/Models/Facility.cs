@@ -11,7 +11,7 @@ namespace TruckDriverApp.Models
     {
         [Key]
         [Display(Name = "Facility Id")]
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Address { get; set; }
 
         [Display(Name = "City")]
@@ -55,10 +55,10 @@ namespace TruckDriverApp.Models
         public DateTime EntryTime { get; set; }
         public DateTime ExitTime { get; set; }
 
-        [ForeignKey("ProfileID")]
+        [ForeignKey("ProfileId")]
 
-        [Display(Name = "Profile ID")]
-        public int? ProfileID { get; set; }
+        [Display(Name = "Profile Id")]
+        public int? ProfileId { get; set; }
 
         [ForeignKey("Driver Id")]
         public int? DriverId { get; set; }

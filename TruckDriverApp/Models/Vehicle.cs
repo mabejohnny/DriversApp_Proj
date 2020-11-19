@@ -30,8 +30,8 @@ namespace TruckDriverApp.Models
         [Display(Name = "Truck Notes")]
         public int TruckNotes { get; set; }
 
-        [Display(Name = "Vehicle ID")]
-        public int? VehicleID { get; set; }
+        [Display(Name = "Vehicle Id")]
+        public int? VehicleId { get; set; }
 
         [ForeignKey("Driver Id")]
         public int? DriverId { get; set; }

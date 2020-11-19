@@ -38,14 +38,16 @@ namespace TruckDriverApp.Models
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }
 
-        [ForeignKey("VehicleID")]
+        [ForeignKey("VehicleId")]
 
-        [Display(Name = "Vehicle ID")]
-        public int? VehicleID { get; set; }
+        [Display(Name = "Vehicle Id")]
+        public int? VehicleId { get; set; }
 
-        [ForeignKey("ProfileID")]
+        [ForeignKey("ProfileId")]
 
-        [Display(Name = "Profile ID")]
-        public int? ProfileID { get; set; }
+        [Display(Name = "Profile Id")]
+        public int? ProfileId { get; set; }
+
+        public Vehicle Vehicle { get; set; }
     }
 }
