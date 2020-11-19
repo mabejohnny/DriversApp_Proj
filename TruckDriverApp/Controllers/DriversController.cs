@@ -176,5 +176,51 @@ namespace TruckDriverApp.Controllers
         {
             return _context.Drivers.Any(e => e.Id == id);
         }
+
+        //public IActionResult ShowFacilityMap()
+        //{
+        //    var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+        //    var facility = _context.Facilitys.Where(c => c.OwnerId == contractor.Id);
+        //    var reservations = new List<Reservation>();
+        //    foreach (var item in spots)
+        //    {
+        //        reservations.AddRange(_context.Reservations.Where(c => c.OwnedSpotID == item.ID).ToList());
+        //    }
+        //    return View(reservations);
+
+        //}
+
+        //GET: DriversController/AddVehicle/
+        public ActionResult AddVehicle(int? id)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var customer = _context.Drivers.Where(c => c.IdentityUserId == userId).FirstOrDefault();
+
+
+            if (customer == null)
+            {
+                return RedirectToAction("Create");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //POST: DriversController/AddVehicle/
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddVehicle([Bind("TruckMake,TruckModel,TruckYear, TruckColor, TruckLicensePlate, TruckNotes")] Vehicle vehicle)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            vehicle.DriverId = driver.Id;
+            _context.Vehicles.Add(vehicle);
+            _context.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
