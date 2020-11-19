@@ -49,5 +49,7 @@ namespace TruckDriverApp.Models
         public int? ProfileId { get; set; }
 
         public Vehicle Vehicle { get; set; }
+
+
     }
 }

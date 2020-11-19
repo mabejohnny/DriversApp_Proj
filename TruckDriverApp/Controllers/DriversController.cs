@@ -150,7 +150,7 @@ namespace TruckDriverApp.Controllers
             }
 
             var driver = await _context.Drivers
-                .Include(c => c.)
+                .Include(c => c.Vehicle)
                 .Include(d => d.IdentityUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (driver == null)
