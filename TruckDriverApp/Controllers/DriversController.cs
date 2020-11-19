@@ -243,5 +243,19 @@ namespace TruckDriverApp.Controllers
 
         }
 
+        public ActionResult AllFacilitys()
+        {
+
+            var facility = _context.Facilitys;
+
+            if (facility == null)
+            {
+                return NotFound();
+            }
+
+            return View(facility);
+        }
+
+
     }
 }
