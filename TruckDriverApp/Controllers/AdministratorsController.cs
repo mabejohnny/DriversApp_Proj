@@ -29,8 +29,22 @@ namespace TruckDriverApp.Controllers
         // GET: Administrators
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Administrators.Include(a => a.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var administrator = _context.Administrators.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (administrator == null)
+            {
+                return RedirectToAction(nameof(Create));
+            }
+
+            administrator = await _context.Administrators
+                .Include(c => c.IdentityUser)
+                .FirstOrDefaultAsync(m => m.Id == administrator.Id);
+
+
+            return View(administrator);
+
+
         }
 
         // GET: Administrators/Details/5
@@ -164,12 +178,13 @@ namespace TruckDriverApp.Controllers
             return _context.Administrators.Any(e => e.Id == id);
         }
 
-        //Get for Create Parking Spot
+        //GET: Administrator/Create Facility
         public IActionResult CreateFacility()
         {
             return View();
         }
-        
+
+        //POST: Administrator/Create Facility
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateFacility([Bind("Id,Address, City, State, ZipCode, PhoneNumber, OvernightParking, Notes, ParkingOptions, FoodDelivery, OtherOptions, DriversLounge, HasShowers, ")] Facility facility)
