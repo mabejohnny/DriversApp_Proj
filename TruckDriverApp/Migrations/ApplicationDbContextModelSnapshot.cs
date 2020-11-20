@@ -48,15 +48,15 @@ namespace TruckDriverApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1bd87b74-3b02-4126-98e3-b9acb0767fc6",
-                            ConcurrencyStamp = "d64071ec-a650-4f69-9573-92b09388dc87",
+                            Id = "23d10439-b493-4ba2-a9e9-d53f0251a48b",
+                            ConcurrencyStamp = "94dc40ef-646e-47f9-913f-c85f346d8553",
                             Name = "Driver",
                             NormalizedName = "DRIVER"
                         },
                         new
                         {
-                            Id = "77e60802-3e18-40cf-8999-79aa642defb1",
-                            ConcurrencyStamp = "d99bf75f-52c0-4416-ad87-3d7bdf8b449f",
+                            Id = "539d7e81-d10f-4643-b013-cbc3231e6457",
+                            ConcurrencyStamp = "2bb4077b-661f-4a22-a930-f6de58f2c641",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -178,12 +178,10 @@ namespace TruckDriverApp.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -220,12 +218,10 @@ namespace TruckDriverApp.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -292,25 +288,30 @@ namespace TruckDriverApp.Migrations
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProfileID")
+                    b.Property<int?>("ProfileId")
                         .HasColumnType("int");
 
                     b.Property<double>("Rating")
                         .HasColumnType("float");
 
-                    b.Property<int?>("VehicleID")
+                    b.Property<int?>("VehicleId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("VehicleId1")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IdentityUserId");
 
+                    b.HasIndex("VehicleId1");
+
                     b.ToTable("Drivers");
                 });
 
             modelBuilder.Entity("TruckDriverApp.Models.Facility", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -360,7 +361,7 @@ namespace TruckDriverApp.Migrations
                     b.Property<double>("PhoneNumber")
                         .HasColumnType("float");
 
-                    b.Property<int?>("ProfileID")
+                    b.Property<int?>("ProfileId")
                         .HasColumnType("int");
 
                     b.Property<double>("Rating")
@@ -372,9 +373,30 @@ namespace TruckDriverApp.Migrations
                     b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Facilitys");
+                });
+
+            modelBuilder.Entity("TruckDriverApp.Models.Profile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Notes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Reviews")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Profiles");
                 });
 
             modelBuilder.Entity("TruckDriverApp.Models.Vehicle", b =>
@@ -405,7 +427,7 @@ namespace TruckDriverApp.Migrations
                     b.Property<int>("TruckYear")
                         .HasColumnType("int");
 
-                    b.Property<int?>("VehicleID")
+                    b.Property<int?>("VehicleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -476,6 +498,10 @@ namespace TruckDriverApp.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
                         .HasForeignKey("IdentityUserId");
+
+                    b.HasOne("TruckDriverApp.Models.Vehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId1");
                 });
 #pragma warning restore 612, 618
         }

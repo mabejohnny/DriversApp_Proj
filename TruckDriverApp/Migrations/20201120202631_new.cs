@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TruckDriverApp.Migrations
 {
-    public partial class initial : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,7 +50,7 @@ namespace TruckDriverApp.Migrations
                 name: "Facilitys",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Address = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
@@ -69,12 +69,27 @@ namespace TruckDriverApp.Migrations
                     HasShowers = table.Column<bool>(nullable: false),
                     EntryTime = table.Column<DateTime>(nullable: false),
                     ExitTime = table.Column<DateTime>(nullable: false),
-                    ProfileID = table.Column<int>(nullable: true),
+                    ProfileId = table.Column<int>(nullable: true),
                     DriverId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Facilitys", x => x.ID);
+                    table.PrimaryKey("PK_Facilitys", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Profiles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Rating = table.Column<string>(nullable: true),
+                    Notes = table.Column<string>(nullable: true),
+                    Reviews = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Profiles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,7 +104,7 @@ namespace TruckDriverApp.Migrations
                     TruckColor = table.Column<int>(nullable: false),
                     TruckLicensePlate = table.Column<int>(nullable: false),
                     TruckNotes = table.Column<int>(nullable: false),
-                    VehicleID = table.Column<int>(nullable: true),
+                    VehicleId = table.Column<int>(nullable: true),
                     DriverId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -166,8 +181,8 @@ namespace TruckDriverApp.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
                     UserId = table.Column<string>(nullable: false)
                 },
@@ -211,8 +226,8 @@ namespace TruckDriverApp.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
-                    Name = table.Column<string>(maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
                     Value = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -240,8 +255,9 @@ namespace TruckDriverApp.Migrations
                     Notes = table.Column<string>(nullable: true),
                     Rating = table.Column<double>(nullable: false),
                     IdentityUserId = table.Column<string>(nullable: true),
-                    VehicleID = table.Column<int>(nullable: true),
-                    ProfileID = table.Column<int>(nullable: true)
+                    VehicleId = table.Column<int>(nullable: true),
+                    ProfileId = table.Column<int>(nullable: true),
+                    VehicleId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -252,17 +268,23 @@ namespace TruckDriverApp.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Drivers_Vehicles_VehicleId1",
+                        column: x => x.VehicleId1,
+                        principalTable: "Vehicles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1bd87b74-3b02-4126-98e3-b9acb0767fc6", "d64071ec-a650-4f69-9573-92b09388dc87", "Driver", "DRIVER" });
+                values: new object[] { "23d10439-b493-4ba2-a9e9-d53f0251a48b", "94dc40ef-646e-47f9-913f-c85f346d8553", "Driver", "DRIVER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "77e60802-3e18-40cf-8999-79aa642defb1", "d99bf75f-52c0-4416-ad87-3d7bdf8b449f", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "539d7e81-d10f-4643-b013-cbc3231e6457", "2bb4077b-661f-4a22-a930-f6de58f2c641", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Administrators_IdentityUserId",
@@ -312,6 +334,11 @@ namespace TruckDriverApp.Migrations
                 name: "IX_Drivers_IdentityUserId",
                 table: "Drivers",
                 column: "IdentityUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Drivers_VehicleId1",
+                table: "Drivers",
+                column: "VehicleId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -341,13 +368,16 @@ namespace TruckDriverApp.Migrations
                 name: "Facilitys");
 
             migrationBuilder.DropTable(
-                name: "Vehicles");
+                name: "Profiles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Vehicles");
         }
     }
 }
