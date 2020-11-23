@@ -48,15 +48,15 @@ namespace TruckDriverApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "23d10439-b493-4ba2-a9e9-d53f0251a48b",
-                            ConcurrencyStamp = "94dc40ef-646e-47f9-913f-c85f346d8553",
+                            Id = "1af88049-142f-41f3-9359-e0e4457feae9",
+                            ConcurrencyStamp = "9b095b64-bba2-419b-b5ec-f033d8d6c804",
                             Name = "Driver",
                             NormalizedName = "DRIVER"
                         },
                         new
                         {
-                            Id = "539d7e81-d10f-4643-b013-cbc3231e6457",
-                            ConcurrencyStamp = "2bb4077b-661f-4a22-a930-f6de58f2c641",
+                            Id = "9a619afb-f1a3-497c-83f8-54a3e71d24f1",
+                            ConcurrencyStamp = "0164ea92-3634-4b20-9e0b-e81feead756a",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -385,13 +385,36 @@ namespace TruckDriverApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Notes")
+                    b.Property<string>("AboutMe")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Rating")
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Reviews")
+                    b.Property<string>("Gender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProfilePicture")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

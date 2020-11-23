@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TruckDriverApp.Data;
 using TruckDriverApp.Models;
+using TruckDriverApp.ViewModels;
 
 namespace TruckDriverApp.Controllers
 {
@@ -16,9 +19,11 @@ namespace TruckDriverApp.Controllers
     public class DriversController : Controller
     {
         private readonly ApplicationDbContext _context;
-        public DriversController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment webHostEnvironment;
+        public DriversController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
         {
             _context = context;
+            webHostEnvironment = hostEnvironment;
         }
 
         // GET: Drivers
@@ -36,7 +41,7 @@ namespace TruckDriverApp.Controllers
             .Include(c => c.IdentityUser)
             .FirstOrDefaultAsync(m => m.Id == driver.Id);
 
-             return View(driver);
+            return View(driver);
 
         }
 
@@ -71,7 +76,7 @@ namespace TruckDriverApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,EmailAddress,EntryTime,ExitTime,Notes,Rating,IdentityUserId,VehicleId,ProfileId")] Driver driver)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,EmailAddress")] Driver driver)
         {
             if (ModelState.IsValid)
             {
@@ -216,7 +221,7 @@ namespace TruckDriverApp.Controllers
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
 
-            vehicle.DriverId = driver.Id;
+            vehicle.VehicleId = driver.Id;
             _context.Vehicles.Add(vehicle);
             _context.SaveChanges();
 
@@ -233,7 +238,7 @@ namespace TruckDriverApp.Controllers
             {
                 return NotFound();
             }
-            var vehicles = _context.Vehicles.Where(c => c.DriverId == driver.Id);
+            var vehicles = _context.Vehicles.Where(c => c.VehicleId == driver.Id).SingleOrDefault();
 
             if (vehicles == null)
             {
@@ -273,6 +278,89 @@ namespace TruckDriverApp.Controllers
             return View(facility);
         }
 
+        public IActionResult New()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> New(ProfileViewModel model)
+        {
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = UploadedFile(model);
+
+                Profile profile = new Profile
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    FullName = model.FirstName + " " + model.LastName,
+                    Gender = model.Gender,
+                    Age = model.Age,
+                    AboutMe = model.AboutMe,
+                    Position = model.Position,
+                    ProfilePicture = uniqueFileName,
+                };
+                //profile.Id += driver.Id;
+                _context.Add(profile);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        private string UploadedFile(ProfileViewModel model)
+        {
+            string uniqueFileName = null;
+
+            if (model.ProfileImage != null)
+            {
+                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ProfileImage.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.ProfileImage.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
+        public ActionResult ViewProfile()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (driver == null)
+            {
+                return NotFound();
+            }
+            var profiles = _context.Profiles.Where(c => c.Id == driver.Id);
+
+            if (profiles == null)
+            {
+                return NotFound();
+            }
+            return View(profiles);
+
+        }
+
+        //[HttpPost]
+        //public ActionResult PostRating(int rating, int mid)
+        //{
+        //    StarRating rt = new StarRating();
+        //    rt.Rate = rating;
+        //    rt.CustomerId = mid;
+
+        //    _context.Ratings.Add(rt);
+        //    _context.SaveChanges();
+
+        //    return Ok();
+
+        //}
     }
 }

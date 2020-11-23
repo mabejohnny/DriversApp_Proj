@@ -1,28 +1,21 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TruckDriverApp.Models
+namespace TruckDriverApp.ViewModels
 {
-    public class Profile
+    public class ProfileViewModel
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required(ErrorMessage = "Please enter first name")]
         [Display(Name = "First Name")]
-        [StringLength(100)]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Please enter last name")]
-        [Display(Name = "Last Name")]
-        [StringLength(100)]
+        [Display(Name = "First Name")]
         public string LastName { get; set; }
-
-        [Display(Name = "Full Name")]
-        public string FullName { get; set; }
 
         [Required(ErrorMessage = "Please enter age")]
         public int Age { get; set; }
@@ -37,11 +30,7 @@ namespace TruckDriverApp.Models
         public string AboutMe { get; set; }
 
         [Required(ErrorMessage = "Please choose profile image")]
-        public string ProfilePicture { get; set; }
-
-        public Profile()
-        {
-            FullName = FirstName + " " + LastName;
-        }
+        [Display(Name = "Profile Picture")]
+        public IFormFile ProfileImage { get; set; }
     }
 }

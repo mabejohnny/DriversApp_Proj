@@ -83,9 +83,14 @@ namespace TruckDriverApp.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Rating = table.Column<string>(nullable: true),
-                    Notes = table.Column<string>(nullable: true),
-                    Reviews = table.Column<string>(nullable: true)
+                    FirstName = table.Column<string>(maxLength: 100, nullable: false),
+                    LastName = table.Column<string>(maxLength: 100, nullable: false),
+                    FullName = table.Column<string>(nullable: true),
+                    Age = table.Column<int>(nullable: false),
+                    Gender = table.Column<string>(nullable: false),
+                    Position = table.Column<string>(nullable: false),
+                    AboutMe = table.Column<string>(nullable: false),
+                    ProfilePicture = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -279,12 +284,12 @@ namespace TruckDriverApp.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "23d10439-b493-4ba2-a9e9-d53f0251a48b", "94dc40ef-646e-47f9-913f-c85f346d8553", "Driver", "DRIVER" });
+                values: new object[] { "1af88049-142f-41f3-9359-e0e4457feae9", "9b095b64-bba2-419b-b5ec-f033d8d6c804", "Driver", "DRIVER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "539d7e81-d10f-4643-b013-cbc3231e6457", "2bb4077b-661f-4a22-a930-f6de58f2c641", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "9a619afb-f1a3-497c-83f8-54a3e71d24f1", "0164ea92-3634-4b20-9e0b-e81feead756a", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Administrators_IdentityUserId",

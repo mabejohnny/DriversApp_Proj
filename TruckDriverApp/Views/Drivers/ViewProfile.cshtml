@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TruckDriverApp.Models.Profile>
+
+@{
+    ViewData["Title"] = "ViewProfile";
+}
+
+<h4 class="text-center text-uppercase">List of employee</h4>
+
+<p>
+    <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.Gender)</th>
+            <th>@Html.DisplayNameFor(model => model.Age)</th>
+            <th>@Html.DisplayNameFor(model => model.Position)</th>
+            <th>@Html.DisplayNameFor(model => model.AboutMe)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var profile in Model)
+         {
+            <tr>
+                <td>
+                    <img src="~/images/@profile.ProfilePicture"
+                         class="rounded-circle"
+                         height="40" width="40"
+                         asp-append-version="true" />
+                    @profile.FirstName
+                </td>
+                <td>@profile.Gender</td>
+                <td>@profile.Age</td>
+                <td>@profile.AboutMe</td>
+                <td>@profile.Position</td>
+
+            </tr>
+
+         }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to List</a>
+</div> 
