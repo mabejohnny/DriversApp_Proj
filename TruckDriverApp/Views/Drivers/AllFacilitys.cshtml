@@ -6,6 +6,12 @@
 
 <h1>AllFacilitys</h1>
 
+<form method="get" action="@Url.Action("SearchByZipCode", "Drivers")">
+    <label for="search">Search</label>
+    <input type="text" name="search" id="search" />
+    <button type="submit">Perform search</button>
+</form>
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>

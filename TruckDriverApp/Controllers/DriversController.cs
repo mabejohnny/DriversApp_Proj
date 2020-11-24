@@ -287,10 +287,43 @@ namespace TruckDriverApp.Controllers
         public ActionResult ViewFacility(int? Id)
         {
             var facility = _context.Facilitys.Where(c => c.Id == Id).SingleOrDefault();
-            //Enumerable.Repeat(Id, 1);
+            
             return View(facility);
         }
 
+        [HttpGet]
+        public ActionResult SearchByZipCode(string search)
+        {
+
+            int zip = int.Parse(search);
+            //var result = _context.Facilitys.Find(c => c.ZipCode == search); 
+            var facility = _context.Facilitys.Where(c => c.ZipCode == search).ToList();
+
+          
+            if (facility.Count == 0)
+            {
+                return RedirectToAction(nameof(AddNewFacility));
+            }
+            else if(facility.Count > 0)
+            {
+                ViewData.Model = facility;
+                
+            }
+            return View();
+        }
+
+        public ActionResult AddNewFacility()
+        {
+            return View();
+        }
+
+        //POST: DriversController/AddNewFacility/
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddNewFacility(int id)
+        {
+            return View();
+        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
