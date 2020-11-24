@@ -273,6 +273,7 @@ namespace TruckDriverApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SearchFacility(string zipCode)
         {
+            
             var facility = _context.Facilitys.Where(c => c.ZipCode == zipCode).FirstOrDefault();
 
             return View(facility);

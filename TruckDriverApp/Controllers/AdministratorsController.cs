@@ -82,6 +82,9 @@ namespace TruckDriverApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                administrator.IdentityUserId = userId;
+
                 _context.Add(administrator);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -187,7 +190,7 @@ namespace TruckDriverApp.Controllers
         //POST: Administrator/Create Facility
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateFacility([Bind("Id,Address, City, State, ZipCode, PhoneNumber, OvernightParking, Notes, ParkingOptions, FoodDelivery, OtherOptions, DriversLounge, HasShowers, ")] Facility facility)
+        public async Task<IActionResult> CreateFacility([Bind("Address, City, State, ZipCode, PhoneNumber, OvernightParking, Notes, ParkingOptions, FoodDelivery, OtherOptions, DriversLounge, HasShowers, ")] Facility facility)
         {
             if (ModelState.IsValid)
             {

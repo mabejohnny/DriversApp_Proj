@@ -13,7 +13,7 @@ namespace TruckDriverApp.Services
     {
         public async Task<Facility> AttachLatAndLong(Facility facility)
         {
-            string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={facility.Address}+{facility.City}+{facility.State}+&key={APIKeys.GOOGLE_API_KEY}";
+            string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={facility.Address}+{facility.City}+{facility.State}&key={APIKeys.GOOGLE_API_KEY}";
 
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync(url);
