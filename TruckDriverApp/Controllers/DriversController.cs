@@ -284,6 +284,25 @@ namespace TruckDriverApp.Controllers
             return View();
         }
 
+        public ActionResult ViewFacility(int? Id)
+        {
+            var facility = _context.Facilitys.Where(c => c.Id == Id).SingleOrDefault();
+            //Enumerable.Repeat(Id, 1);
+            return View(facility);
+        }
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult ViewFacility(int? Id)
+        //{
+
+        //    var facility = _context.Facilitys.Where(c => c.Id == Id).SingleOrDefault();
+
+        //    return View(facility);
+        //}
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> New(ProfileViewModel model)

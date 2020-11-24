@@ -140,8 +140,10 @@
                     @Html.DisplayFor(modelItem => item.DriverId)
                 </td>
                 <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
-                    <a asp-action="BookASpot" asp-route-id="@item.Id">Check it out</a>
+                    @*@Html.ActionLink("ViewFacility", "ViewFacility", new[] { item }) |*@
+                    <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a> |
+
+
                     @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
                 </td>
             </tr>
