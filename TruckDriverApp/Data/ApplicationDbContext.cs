@@ -41,6 +41,7 @@ namespace TruckDriverApp.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Administrator> Administrators { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<CommentReview> CommentReviews { get; set; }
     }
 }
 

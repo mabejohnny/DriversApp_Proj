@@ -14,7 +14,7 @@ namespace TruckDriverApp.ViewModels
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Please enter last name")]
-        [Display(Name = "First Name")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Please enter age")]

@@ -24,6 +24,15 @@
     @Html.ActionLink("View All Facilities", "AllFacilitys", new { id = Model.Id })
 </p>
 <p>
+    @Html.ActionLink("Write a Comment", "ViewProfile", new { id = Model.Id })
+</p>
+<p>
+    @Html.ActionLink("Create a profile", "New", new { id = Model.Id })
+</p>
+<p>
+    @Html.ActionLink("View submitted comments and reviews", "ViewCommentsMade", new { id = Model.Id })
+</p>
+<p>
     @Html.ActionLink("View Profile", "ViewProfile", new { id = Model.Id })
 </p>
 

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<TruckDriverApp.Models.CommentReview>
+
+@{
+    ViewData["Title"] = "ViewCommentsMade";
+}
+
+<h1>ViewCommentsMade</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<h4 class="text-center text-uppercase">List of employee</h4>
+
+<p>
+    <a asp-action="CommentReviewProfile" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FullName)</th>
+            <th>@Html.DisplayNameFor(model => model.FacilityComments)</th>
+            <th>@Html.DisplayNameFor(model => model.AddToFacility)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var CommentReview in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@CommentReview.FacilityPicture"
+                         class="rounded-circle"
+                         height="40" width="40"
+                         asp-append-version="true" />
+                    @CommentReview.FullName
+                </td>
+                <td>@CommentReview.FacilityComments</td>
+                <td>@CommentReview.AddToFacility</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>  

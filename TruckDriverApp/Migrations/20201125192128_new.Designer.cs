@@ -10,7 +10,7 @@ using TruckDriverApp.Data;
 namespace TruckDriverApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201123145807_new")]
+    [Migration("20201125192128_new")]
     partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace TruckDriverApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1af88049-142f-41f3-9359-e0e4457feae9",
-                            ConcurrencyStamp = "9b095b64-bba2-419b-b5ec-f033d8d6c804",
+                            Id = "314eef18-a1b4-421c-9315-195e4861d010",
+                            ConcurrencyStamp = "8e64017a-9411-44e8-8967-0827fe4a3368",
                             Name = "Driver",
                             NormalizedName = "DRIVER"
                         },
                         new
                         {
-                            Id = "9a619afb-f1a3-497c-83f8-54a3e71d24f1",
-                            ConcurrencyStamp = "0164ea92-3634-4b20-9e0b-e81feead756a",
+                            Id = "e8f8e5b0-40b2-45cc-8a77-ff3eadd1f401",
+                            ConcurrencyStamp = "e34c8c4d-75cf-4612-b2ed-050b831e581d",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -260,6 +260,45 @@ namespace TruckDriverApp.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Administrators");
+                });
+
+            modelBuilder.Entity("TruckDriverApp.Models.CommentReview", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AddToFacility")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("FacilityComments")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("FacilityPicture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CommentReviews");
                 });
 
             modelBuilder.Entity("TruckDriverApp.Models.Driver", b =>

@@ -47,6 +47,24 @@ namespace TruckDriverApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CommentReviews",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(maxLength: 100, nullable: false),
+                    LastName = table.Column<string>(maxLength: 100, nullable: false),
+                    FullName = table.Column<string>(nullable: true),
+                    FacilityComments = table.Column<string>(maxLength: 100, nullable: false),
+                    AddToFacility = table.Column<string>(maxLength: 100, nullable: false),
+                    FacilityPicture = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CommentReviews", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Facilitys",
                 columns: table => new
                 {
@@ -284,12 +302,12 @@ namespace TruckDriverApp.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1af88049-142f-41f3-9359-e0e4457feae9", "9b095b64-bba2-419b-b5ec-f033d8d6c804", "Driver", "DRIVER" });
+                values: new object[] { "314eef18-a1b4-421c-9315-195e4861d010", "8e64017a-9411-44e8-8967-0827fe4a3368", "Driver", "DRIVER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "9a619afb-f1a3-497c-83f8-54a3e71d24f1", "0164ea92-3634-4b20-9e0b-e81feead756a", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "e8f8e5b0-40b2-45cc-8a77-ff3eadd1f401", "e34c8c4d-75cf-4612-b2ed-050b831e581d", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Administrators_IdentityUserId",
@@ -365,6 +383,9 @@ namespace TruckDriverApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "CommentReviews");
 
             migrationBuilder.DropTable(
                 name: "Drivers");

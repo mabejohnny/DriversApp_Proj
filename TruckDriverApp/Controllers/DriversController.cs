@@ -402,6 +402,74 @@ namespace TruckDriverApp.Controllers
 
         }
 
+        public ActionResult CommentReviewProfile()
+        {
+            
+                return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CommentReviewProfile(CommentReviewViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                string uniqueFileName = UploadedFileFacility(model);
+
+                CommentReview commentReview = new CommentReview
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    FullName = model.FirstName + " " + model.LastName,
+                    FacilityComments = model.FacilityComments,
+                    AddToFacility = model.AddToFacility,
+                    FacilityPicture = uniqueFileName,
+                };
+                _context.Add(commentReview);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        private string UploadedFileFacility(CommentReviewViewModel model)
+        {
+            string uniqueFileName = null;
+
+            if (model.FacilityPicture != null)
+            {
+                string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.FacilityPicture.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.FacilityPicture.CopyTo(fileStream);
+                }
+            }
+            return uniqueFileName;
+        }
+
+        public ActionResult ViewCommentsMade()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (driver == null)
+            {
+                return NotFound();
+            }
+            var comments = _context.CommentReviews;
+
+            if (comments == null)
+            {
+                return NotFound();
+            }
+            return View(comments);
+
+        }
+
+
+
         //[HttpPost]
         //public ActionResult PostRating(int rating, int mid)
         //{
