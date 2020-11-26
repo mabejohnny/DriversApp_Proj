@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TruckDriverApp.Data;
 using TruckDriverApp.Models;
+using TruckDriverApp.Services;
 using TruckDriverApp.ViewModels;
 
 namespace TruckDriverApp.Controllers
@@ -320,9 +321,17 @@ namespace TruckDriverApp.Controllers
         //POST: DriversController/AddNewFacility/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddNewFacility(int id)
+        public ActionResult AddNewFacility(string Facility_Name, string Phone_Number, string Email, string Address, string City, string State, string ZipCode, string Comments, int Id)
         {
-            return View();
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            string subject = "NEW FACILITY RECOMMENDATION";
+            string body = $"Facility Name: {Facility_Name}" + "\n" + $"Facility Name: {Phone_Number}" + "\n" + $"Facility Name: {Email}" + "\n" + $"Facility Name: {Address}" + "\n" + $"Facility Name: {City}" + "\n" + $"Facility Name: {State}" + "\n" + $"Facility Name: {ZipCode}" + "\n" + $"Facility Name: {Comments}";
+                
+            SendMail.SendEmail(driver.EmailAddress, subject, body);
+            return RedirectToAction(nameof(Index));
+            
         }
 
         //[HttpPost]
@@ -468,7 +477,23 @@ namespace TruckDriverApp.Controllers
 
         }
 
+        //public ActionResult EntryExitTimes(int Id)
+        //{
+        //    return View();
 
+        //}
+
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult EntryExitTimes()
+        //{
+            
+
+
+
+        //}
 
         //[HttpPost]
         //public ActionResult PostRating(int rating, int mid)
