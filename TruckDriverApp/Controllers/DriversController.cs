@@ -431,7 +431,6 @@ namespace TruckDriverApp.Controllers
                     LastName = model.LastName,
                     FullName = model.FirstName + " " + model.LastName,
                     FacilityComments = model.FacilityComments,
-                    AddToFacility = model.AddToFacility,
                     FacilityPicture = uniqueFileName,
                 };
                 _context.Add(commentReview);
@@ -458,7 +457,7 @@ namespace TruckDriverApp.Controllers
             return uniqueFileName;
         }
 
-        public ActionResult ViewCommentsMade()
+        public ActionResult ViewCommentsMade(int? Id)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
@@ -477,6 +476,32 @@ namespace TruckDriverApp.Controllers
 
         }
 
+        public ActionResult InternalDriverMessage(int Id)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (driver == null)
+            {
+                return NotFound();
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult InternalDriverMessage()
+        {
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+
+
+
         //public ActionResult EntryExitTimes(int Id)
         //{
         //    return View();
@@ -489,7 +514,7 @@ namespace TruckDriverApp.Controllers
         //[ValidateAntiForgeryToken]
         //public ActionResult EntryExitTimes()
         //{
-            
+
 
 
 

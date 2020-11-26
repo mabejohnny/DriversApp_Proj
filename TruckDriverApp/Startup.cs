@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Http;
 using TruckDriverApp.ActionFilters;
 using TruckDriverApp.Interfaces;
 using TruckDriverApp.Services;
+using TruckDriverApp.Hubs;
 
 namespace TruckDriverApp
 {
@@ -46,6 +47,7 @@ namespace TruckDriverApp
             });
 
             services.AddControllersWithViews();
+            services.AddSignalR();
             services.AddRazorPages();
             services.AddTransient<IGeocodingService, GeocodingServicecs>();
         }
@@ -74,6 +76,7 @@ namespace TruckDriverApp
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<SmsHub>("/smsHub");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

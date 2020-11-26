@@ -42,7 +42,6 @@ namespace TruckDriverApp.Data
         public DbSet<Administrator> Administrators { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<CommentReview> CommentReviews { get; set; }
-        public DbSet<TimeClock> TimeClocks { get; set; }
     }
 }
 

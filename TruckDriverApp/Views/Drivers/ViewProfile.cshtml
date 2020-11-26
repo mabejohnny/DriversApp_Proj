@@ -6,6 +6,11 @@
 
 <h4 class="text-center text-uppercase">List of employee</h4>
 
+
+
+<div>
+    <a asp-action="InternalDriverMessage" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Message a Driver</a>
+</div>
 <p>
     <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
 </p>
@@ -21,7 +26,7 @@
     </thead>
     <tbody>
         @foreach (var profile in Model)
-         {
+        {
             <tr>
                 <td>
                     <img src="~/images/@profile.ProfilePicture"
@@ -34,10 +39,8 @@
                 <td>@profile.Age</td>
                 <td>@profile.AboutMe</td>
                 <td>@profile.Position</td>
-
             </tr>
-
-         }
+        }
     </tbody>
 </table>
 <div>

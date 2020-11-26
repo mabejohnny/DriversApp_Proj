@@ -21,10 +21,6 @@ namespace TruckDriverApp.ViewModels
         [Display(Name = "Facility Comments")]
         public string FacilityComments { get; set; }
 
-        [Required(ErrorMessage = "Please enter anything you think should be added to this facilitys profile page")]
-        [Display(Name = "What should we add?")]
-        public string AddToFacility { get; set; }
-
         [Required(ErrorMessage = "Have any images to add to this facility?")]
         [Display(Name = "Facility picture")]
 
