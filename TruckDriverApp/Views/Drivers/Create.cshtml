@@ -4,6 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
+<link rel="stylesheet" href="/css/LayoutBySection.css">
+<h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
+    Please Enter In Your Information
+
+</h1>
+<body class="bodyDriverCreate">
+</body>
 <h1>Create</h1>
 
 <h4>Driver</h4>
@@ -29,45 +36,45 @@
             </div>
             <input type="hidden" asp-for="EntryTime" />
             @*<div class="form-group">
-                <label asp-for="EntryTime" class="control-label"></label>
-                <input asp-for="EntryTime" class="form-control" />
-                <span asp-validation-for="EntryTime" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="EntryTime" class="control-label"></label>
+                    <input asp-for="EntryTime" class="form-control" />
+                    <span asp-validation-for="EntryTime" class="text-danger"></span>
+                </div>*@
             <input type="hidden" asp-for="ExitTime" />
             @*<div class="form-group">
-                <label asp-for="ExitTime" class="control-label"></label>
-                <input asp-for="ExitTime" class="form-control" />
-                <span asp-validation-for="ExitTime" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="ExitTime" class="control-label"></label>
+                    <input asp-for="ExitTime" class="form-control" />
+                    <span asp-validation-for="ExitTime" class="text-danger"></span>
+                </div>*@
             <input type="hidden" asp-for="Notes" />
             @*<div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
-                <span asp-validation-for="Notes" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="Notes" class="control-label"></label>
+                    <input asp-for="Notes" class="form-control" />
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>*@
             <input type="hidden" asp-for="Rating" />
             @*<div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="Rating" class="control-label"></label>
+                    <input asp-for="Rating" class="form-control" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>*@
             <input type="hidden" asp-for="IdentityUserId" />
             @*<div class="form-group">
-                <label asp-for="IdentityUserId" class="control-label"></label>
-                <select asp-for="IdentityUserId" class="form-control" asp-items="ViewBag.IdentityUserId"></select>
-            </div>*@
+                    <label asp-for="IdentityUserId" class="control-label"></label>
+                    <select asp-for="IdentityUserId" class="form-control" asp-items="ViewBag.IdentityUserId"></select>
+                </div>*@
             <input type="hidden" asp-for="VehicleId" />
             @*<div class="form-group">
-                <label asp-for="VehicleId" class="control-label"></label>
-                <input asp-for="VehicleId" class="form-control" />
-                <span asp-validation-for="VehicleId" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="VehicleId" class="control-label"></label>
+                    <input asp-for="VehicleId" class="form-control" />
+                    <span asp-validation-for="VehicleId" class="text-danger"></span>
+                </div>*@
             <input type="hidden" asp-for="ProfileId" />
             @*<div class="form-group">
-                <label asp-for="ProfileId" class="control-label"></label>
-                <input asp-for="ProfileId" class="form-control" />
-                <span asp-validation-for="ProfileId" class="text-danger"></span>
-            </div>*@
+                    <label asp-for="ProfileId" class="control-label"></label>
+                    <input asp-for="ProfileId" class="form-control" />
+                    <span asp-validation-for="ProfileId" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

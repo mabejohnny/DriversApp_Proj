@@ -1,0 +1,207 @@
+﻿.bodyDriverCreate {
+    background-image: url("../css/Images/parkinglot2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverAddVehicle {
+    background-image: url("../css/truckAwesome.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverAllFacilitys {
+    background-image: url("../css/Images/beach.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverDelete {
+    background-image: url("../css/Images/parkinglot2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverDetails {
+    background-image: url("../css/Images/no-parking-1426520.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverEdit {
+    background-image: url("../css/download.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverIndex {
+    background-image: url("../css/truckIndex.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverNew {
+    background-image: url("../css/Images/parkedcars.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverViewFacility {
+    background-image: url("../css/Images/city.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverSearchByZipCode {
+    background-image: url("../css/Images/city.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverSearchFacility {
+    background-image: url("../css/Images/city.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverInternalDriverMessage {
+    background-image: url("../css/Images/city.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyDriverViewVehicles {
+    background-image: url("../css/road.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyContractorCreate {
+    background-image: url("../css/Images/carinemptyparkinglot.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.body {
+    background-image: url("../css/Images/carinemptyparkinglot.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyContractorDelete {
+    background-image: url("../css/Images/parkinglot2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyContractorEdit {
+    background-image: url("../css/Images/no-parking-1426520.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyContractorIndex {
+    background-image: url("../css/Images/peoplecars.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bodyContractorParkingSpot {
+    background-image: url("../css/Images/city.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    width: 500px;
+    border: 10px black solid;
+    padding: 50px;
+    margin: 30px;
+    background-color: white;
+    box-shadow: 10px 10px 5px #888888;
+}
+/*scroll bar*/
+#container {
+    width: 50%;
+    margin: auto;
+    padding: 20px 50px 50px 20px;
+    border-bottom: 5px solid black;
+    background-color: white;
+    box-shadow: 10px 10px 5px black;
+    justify-content: space-between;
+}
+
+
+    #container p {
+        text-align: Center;
+    }
+
+.box {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    width: 100%;
+    background-color: white;
+    white-space: nowrap;
+    color: black;
+    font-family: 'Abel', sans-serif;
+    font-size: 100%;
+    box-shadow: 2px 2px 2px #888888;
+    padding: 5px 5px 5px 5px;
+}
+
+#container label {
+    font-family: 'Abel', sans-serif;
+    color: white;
+    padding: 20px 50px 50px 20px;
+    white-space: nowrap;
+}
+
+.buttonMargins {
+    background-color: white;
+    margin: 0 auto;
+    white-space: nowrap;
+    color: black;
+    padding: 20px 20px 20px 20px;
+    font-size: 10px;
+}
+
+.headers {
+    text-align: center;
+    width: 500px;
+    border: 1px solid black;
+    border-bottom-color: transparent;
+    padding: 50px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 5px 5px 5px black;
+    margin-bottom: 100px;
+}
+
+.createHeader {
+    text-align: center;
+    width: 200px;
+    border: 1px solid black;
+    margin-left: 40px;
+    background-color: white;
+}

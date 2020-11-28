@@ -5,6 +5,15 @@
 }
 
 <h1>SearchFacility</h1>
+<link rel="stylesheet" href="/css/LayoutBySection.css">
+<h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
+    Please Enter In Your Information
+
+</h1>
+<body class="bodyDriverSearchFacility">
+</body>
+
+
 
 @using (Html.BeginForm("Index", "Drivers", FormMethod.Get))
 {
@@ -21,6 +30,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
             </th>

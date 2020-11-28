@@ -5,7 +5,13 @@
 }
 
 <h1>SearchByZipCode</h1>
+<link rel="stylesheet" href="/css/LayoutBySection.css">
+<h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
+    Please Enter In Your Information
 
+</h1>
+<body class="bodyDriverSearchByZipCode">
+</body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -76,76 +82,77 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OvernightParking)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Latitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Longitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ParkingOptions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FoodDelivery)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OtherOptions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DriversLounge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasShowers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EntryTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExitTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProfileId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DriverId)
-            </td>
-            <td>
-                <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a>
-                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OvernightParking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Latitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Longitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParkingOptions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoodDelivery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OtherOptions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DriversLounge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasShowers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EntryTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExitTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DriverId)
+                </td>
+                <td>
+                    <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 <div>

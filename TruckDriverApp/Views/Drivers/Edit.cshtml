@@ -4,70 +4,78 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<link rel="stylesheet" href="/css/new.css">
+<h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">Edit</h1>
 
-<h4>Driver</h4>
+<body class="bodyDriverEdit">
+</body>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EmailAddress" class="control-label"></label>
-                <input asp-for="EmailAddress" class="form-control" />
-                <span asp-validation-for="EmailAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EntryTime" class="control-label"></label>
-                <input asp-for="EntryTime" class="form-control" />
-                <span asp-validation-for="EntryTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ExitTime" class="control-label"></label>
-                <input asp-for="ExitTime" class="form-control" />
-                <span asp-validation-for="ExitTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
-                <span asp-validation-for="Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IdentityUserId" class="control-label"></label>
-                <select asp-for="IdentityUserId" class="form-control" asp-items="ViewBag.IdentityUserId"></select>
-                <span asp-validation-for="IdentityUserId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VehicleId" class="control-label"></label>
-                <input asp-for="VehicleId" class="form-control" />
-                <span asp-validation-for="VehicleId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProfileId" class="control-label"></label>
-                <input asp-for="ProfileId" class="form-control" />
-                <span asp-validation-for="ProfileId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+<div style="width: 500px; margin: auto; padding: 20px 20px 15px 10px; color:#808080; background-color: #ffffff; border: 1px solid black; box-shadow: 5px 6px 6px black;">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="FirstName" class="control-label"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="control-label"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmailAddress" class="control-label"></label>
+            <input asp-for="EmailAddress" class="form-control" />
+            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+        </div>
+        <input type="hidden" asp-for="EntryTime" />
+        @*<div class="form-group">
+            <label asp-for="EntryTime" class="control-label"></label>
+            <input asp-for="EntryTime" class="form-control" />
+            <span asp-validation-for="EntryTime" class="text-danger"></span>
+        </div>*@
+        <input type="hidden" asp-for="ExitTime" />
+        @*<div class="form-group">
+            <label asp-for="ExitTime" class="control-label"></label>
+            <input asp-for="ExitTime" class="form-control" />
+            <span asp-validation-for="ExitTime" class="text-danger"></span>
+        </div>*@
+        <input type="hidden" asp-for="Notes" />
+        @*<div class="form-group">
+            <label asp-for="Notes" class="control-label"></label>
+            <input asp-for="Notes" class="form-control" />
+            <span asp-validation-for="Notes" class="text-danger"></span>
+        </div>*@
+        <input type="hidden" asp-for="Rating" />
+        @*<div class="form-group">
+            <label asp-for="Rating" class="control-label"></label>
+            <input asp-for="Rating" class="form-control" />
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>*@
+        <input type="hidden" asp-for="IdentityUserId" />
+        @*<div class="form-group">
+            <label asp-for="IdentityUserId" class="control-label"></label>
+            <select asp-for="IdentityUserId" class="form-control" asp-items="ViewBag.IdentityUserId"></select>
+            <span asp-validation-for="IdentityUserId" class="text-danger"></span>
+        </div>*@
+        <input type="hidden" asp-for="VehicleId" />
+        @*<div class="form-group">
+            <label asp-for="VehicleId" class="control-label"></label>
+            <input asp-for="VehicleId" class="form-control" />
+            <span asp-validation-for="VehicleId" class="text-danger"></span>
+        </div>*@
+        <input type="hidden" asp-for="ProfileId" />
+        @*<div class="form-group">
+            <label asp-for="ProfileId" class="control-label"></label>
+            <input asp-for="ProfileId" class="form-control" />
+            <span asp-validation-for="ProfileId" class="text-danger"></span>
+        </div>*@
+
+        <input style="text-align: center;" type="submit" value="Save" class="btn btn-warning" />
+
+    </form>
+
 </div>
 
 <div>

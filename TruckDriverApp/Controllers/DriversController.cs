@@ -243,7 +243,7 @@ namespace TruckDriverApp.Controllers
 
             if (vehicles == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(AddVehicle));
             }
             return View(vehicles);
 
@@ -321,13 +321,13 @@ namespace TruckDriverApp.Controllers
         //POST: DriversController/AddNewFacility/
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddNewFacility(string Facility_Name, string Phone_Number, string Email, string Address, string City, string State, string ZipCode, string Comments, int Id)
+        public ActionResult AddNewFacility(string Name, string PhoneNumber, string Email, string Address, string City, string State, string ZipCode, string Comments, int Id)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
 
             string subject = "NEW FACILITY RECOMMENDATION";
-            string body = $"Facility Name: {Facility_Name}" + "\n" + $"Facility Name: {Phone_Number}" + "\n" + $"Facility Name: {Email}" + "\n" + $"Facility Name: {Address}" + "\n" + $"Facility Name: {City}" + "\n" + $"Facility Name: {State}" + "\n" + $"Facility Name: {ZipCode}" + "\n" + $"Facility Name: {Comments}";
+            string body = $"Facility Name: {Name}" + "\n" + $"Facility Name: {PhoneNumber}" + "\n" + $"Facility Name: {Email}" + "\n" + $"Facility Name: {Address}" + "\n" + $"Facility Name: {City}" + "\n" + $"Facility Name: {State}" + "\n" + $"Facility Name: {ZipCode}" + "\n" + $"Facility Name: {Comments}";
                 
             SendMail.SendEmail(driver.EmailAddress, subject, body);
             return RedirectToAction(nameof(Index));
@@ -367,7 +367,7 @@ namespace TruckDriverApp.Controllers
                     Position = model.Position,
                     ProfilePicture = uniqueFileName,
                 };
-                //profile.Id += driver.Id;
+                 //profile.Id += driver.Id;
                 _context.Add(profile);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -496,19 +496,31 @@ namespace TruckDriverApp.Controllers
         }
 
 
+        public ActionResult CheckDriverIn(int Id)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            if (driver == null)
+            {
+                return NotFound();
+            }
+            return View(driver);
+
+        }
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckDriverIn()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            //var facility = _context.Facilitys.Where(c => c.Id == Id);
 
+            return View();
 
-
-
-        //public ActionResult EntryExitTimes(int Id)
-        //{
-        //    return View();
-
-        //}
-
-
+        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
@@ -520,18 +532,18 @@ namespace TruckDriverApp.Controllers
 
         //}
 
-        //[HttpPost]
-        //public ActionResult PostRating(int rating, int mid)
-        //{
-        //    StarRating rt = new StarRating();
-        //    rt.Rate = rating;
-        //    rt.CustomerId = mid;
+        [HttpPost]
+        public ActionResult PostRating(int rating, int mid)
+        {
+            StarRating rt = new StarRating();
+            rt.Rate = rating;
+            rt.Id = mid;
 
-        //    _context.Ratings.Add(rt);
-        //    _context.SaveChanges();
+            _context.Ratings.Add(rt);
+            _context.SaveChanges();
 
-        //    return Ok();
+            return Ok();
 
-        //}
+        }
     }
 }

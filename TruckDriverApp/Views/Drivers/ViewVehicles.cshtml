@@ -3,53 +3,59 @@
 @{
     ViewData["Title"] = "ViewVehicles";
 }
+<link rel="stylesheet" href="/css/LayoutBySection.css">
+<h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: ThreeDDarkShadow; box-shadow: 5px 5px 5px black;">
+    Your Trucks
 
-<h1>ViewVehicles</h1>
+</h1>
+<body class="bodyDriverViewVehicles">
+    <div>
+       
+        <hr />
+        <dl class="box">
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TruckMake)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TruckMake)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TruckModel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TruckModel)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TruckYear)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TruckYear)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TruckColor)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TruckColor)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TruckLicensePlate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TruckLicensePlate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TruckNotes)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TruckNotes)
+            </dd>
+        </dl>
+    </div>
+
+</body>
 
 <div>
-    <h4>Vehicle</h4>
-    <hr />
-    <dl class="row">
-
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TruckMake)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TruckMake)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TruckModel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TruckModel)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TruckYear)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TruckYear)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TruckColor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TruckColor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TruckLicensePlate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TruckLicensePlate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TruckNotes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TruckNotes)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.Id  }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     <a asp-action="Index">Back to List</a>
 </div>

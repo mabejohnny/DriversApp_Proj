@@ -1,0 +1,125 @@
+﻿@model TruckDriverApp.Models.Facility
+
+@{
+    ViewData["Title"] = "CheckDriverIn";
+}
+
+<h1>CheckDriverIn</h1>
+
+<h4>Facility</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CheckDriverIn">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZipCode" class="control-label"></label>
+                <input asp-for="ZipCode" class="form-control" />
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OvernightParking" /> @Html.DisplayNameFor(model => model.OvernightParking)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Latitude" class="control-label"></label>
+                <input asp-for="Latitude" class="form-control" />
+                <span asp-validation-for="Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Longitude" class="control-label"></label>
+                <input asp-for="Longitude" class="form-control" />
+                <span asp-validation-for="Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParkingOptions" class="control-label"></label>
+                <input asp-for="ParkingOptions" class="form-control" />
+                <span asp-validation-for="ParkingOptions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoodDelivery" class="control-label"></label>
+                <input asp-for="FoodDelivery" class="form-control" />
+                <span asp-validation-for="FoodDelivery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OtherOptions" class="control-label"></label>
+                <input asp-for="OtherOptions" class="form-control" />
+                <span asp-validation-for="OtherOptions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="DriversLounge" /> @Html.DisplayNameFor(model => model.DriversLounge)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasShowers" /> @Html.DisplayNameFor(model => model.HasShowers)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="EntryTime" class="control-label"></label>
+                <input asp-for="EntryTime" class="form-control" />
+                <span asp-validation-for="EntryTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExitTime" class="control-label"></label>
+                <input asp-for="ExitTime" class="form-control" />
+                <span asp-validation-for="ExitTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfileId" class="control-label"></label>
+                <input asp-for="ProfileId" class="form-control" />
+                <span asp-validation-for="ProfileId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DriverId" class="control-label"></label>
+                <input asp-for="DriverId" class="form-control" />
+                <span asp-validation-for="DriverId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,86 +1,152 @@
 ﻿@model TruckDriverApp.Models.Facility
 
-
 @{
     ViewData["Title"] = "AddNewFacility";
 }
+<link rel="stylesheet" href="/css/LayoutBySection.css">
+<h1 style="        text-align: center;
+        width: 500px;
+        border: 1px solid black;
+        border-bottom-color: transparent;
+        padding: 50px;
+        margin: 0 auto;
+        background-color: ThreeDDarkShadow;
+        box-shadow: 5px 5px 5px black;">
+We are sorry we do not have your facility on file
 
-
-
-
-<h1>We are sorry!</h1>
-
-<h4>We currently do not have your requested facility in our database  </h4>
-<body>
-    <link href="~/css/ContactUs.css" rel="stylesheet" />
-    <div class="container">
-        <div class="row header">
-
-            <h3>Fill out the form below so this wont happen again</h3>
-        </div>
-
-        <div class="row body">
-            <form action="#">
-                <ul>
-
-                    <li>
-                        <p class="left">
-                            <label for="Facility_Name">facility name</label>
-                            <input type="text" name="facility_name" placeholder="Facility Name" />
-                        </p>
-                        <p class="pull-right">
-                            <label for="Phone_Number">phone number</label>
-                            <input type="text" name="phone_number" placeholder="888-888-8888" />
-                        </p>
-                    </li>
-
-                    <li>
-                        <p>
-                            <label for="Email">email <span class="req">*</span></label>
-                            <input type="email" name="email" placeholder="john.smith@gmail.com" />
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <label for="Address">Address <span class="req">*</span></label>
-                            <input type="text" name="Address" placeholder="123 Cherry Lane" />
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <label for="City">City <span class="req">*</span></label>
-                            <input type="text" name="City" placeholder="City" />
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <label for="State">State <span class="req">*</span></label>
-                            <input type="text" name="State" placeholder="State" />
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            <label for="ZipCode">ZipCode <span class="req">*</span></label>
-                            <input type="text" name="ZipCode" placeholder="ZipCode" />
-                        </p>
-                    </li>
-                    <li><div class="divider"></div></li>
-                    <li>
-                        <label for="Comments">comments</label>
-                        <textarea cols="46" rows="3" name="comments"></textarea>
-                    </li>
-
-                    <li>
-                        <input class="btn btn-submit" type="submit" value="Submit" />
-                    </li>
-
-                </ul>
-            </form>
-        </div>
-    </div>
+</h1>
+<body class="bodyDriverAddNewFacility">
 </body>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<hr />
+<div class="row">
+    <div style="        width: 500px;
+        margin: auto;
+        padding: 20px 20px 15px 10px;
+        color: #000000;
+        background-color: ThreeDDarkShadow;
+        border: 1px solid black;
+        box-shadow: 5px 6px 6px black;">
+       
+        <form asp-action="AddNewFacility">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZipCode" class="control-label"></label>
+                <input asp-for="ZipCode" class="form-control" />
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            @*<div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="OvernightParking" /> @Html.DisplayNameFor(model => model.OvernightParking)
+            </label>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Latitude" />
+            @*<div class="form-group">
+            <label asp-for="Latitude" class="control-label"></label>
+            <input asp-for="Latitude" class="form-control" />
+            <span asp-validation-for="Latitude" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="Longitude" />
+            @*<div class="form-group">
+            <label asp-for="Longitude" class="control-label"></label>
+            <input asp-for="Longitude" class="form-control" />
+            <span asp-validation-for="Longitude" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="ParkingOptions" />
+            @*<div class="form-group">
+            <label asp-for="ParkingOptions" class="control-label"></label>
+            <input asp-for="ParkingOptions" class="form-control" />
+            <span asp-validation-for="ParkingOptions" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="FoodDelivery" />
+            @*<div class="form-group">
+            <label asp-for="FoodDelivery" class="control-label"></label>
+            <input asp-for="FoodDelivery" class="form-control" />
+            <span asp-validation-for="FoodDelivery" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="OtherOptions" />
+            @*<div class="form-group">
+            <label asp-for="OtherOptions" class="control-label"></label>
+            <input asp-for="OtherOptions" class="form-control" />
+            <span asp-validation-for="OtherOptions" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="Rating" />
+            @*<div class="form-group">
+            <label asp-for="Rating" class="control-label"></label>
+            <input asp-for="Rating" class="form-control" />
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>*@
+            @*<input type="hidden" asp-for="EntryTime" />
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="DriversLounge" /> @Html.DisplayNameFor(model => model.DriversLounge)
+            </label>
+        </div>*@
+            <input type="hidden" asp-for="EntryTime" />
+            @*<div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="HasShowers" /> @Html.DisplayNameFor(model => model.HasShowers)
+            </label>
+        </div>*@
+            <input type="hidden" asp-for="EntryTime" />
+            @*<div class="form-group">
+            <label asp-for="EntryTime" class="control-label"></label>
+            <input asp-for="EntryTime" class="form-control" />
+            <span asp-validation-for="EntryTime" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="ExitTime" />
+            @*<div class="form-group">
+            <label asp-for="ExitTime" class="control-label"></label>
+            <input asp-for="ExitTime" class="form-control" />
+            <span asp-validation-for="ExitTime" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="ProfileId" />
+            @*<div class="form-group">
+            <label asp-for="ProfileId" class="control-label"></label>
+            <input asp-for="ProfileId" class="form-control" />
+            <span asp-validation-for="ProfileId" class="text-danger"></span>
+        </div>*@
+            <input type="hidden" asp-for="DriverId" />
+            @*<div class="form-group">
+            <label asp-for="DriverId" class="control-label"></label>
+            <input asp-for="DriverId" class="form-control" />
+            <span asp-validation-for="DriverId" class="text-danger"></span>
+        </div>*@
+            <input type="submit" value="Create" class="btn btn-warning" style="text-align: center;" />
+            <a style="text-align: center;" class="btn btn-warning" asp-action="Index">Back to Main Menu</a>
+        </form>
+        </div>
+    </div>
+
+    
 

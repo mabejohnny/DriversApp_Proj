@@ -48,15 +48,15 @@ namespace TruckDriverApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "314eef18-a1b4-421c-9315-195e4861d010",
-                            ConcurrencyStamp = "8e64017a-9411-44e8-8967-0827fe4a3368",
+                            Id = "f4289355-7fdb-4c2d-8c94-e14fd05e0dc1",
+                            ConcurrencyStamp = "20714252-0e16-4ed4-a322-148f5334defd",
                             Name = "Driver",
                             NormalizedName = "DRIVER"
                         },
                         new
                         {
-                            Id = "e8f8e5b0-40b2-45cc-8a77-ff3eadd1f401",
-                            ConcurrencyStamp = "e34c8c4d-75cf-4612-b2ed-050b831e581d",
+                            Id = "7f968176-acb9-401d-935e-2a2e428c3fa2",
+                            ConcurrencyStamp = "3c036cf8-4221-4175-91c3-b6e51e54e17e",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -385,6 +385,9 @@ namespace TruckDriverApp.Migrations
                     b.Property<double>("Longitude")
                         .HasColumnType("float");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Notes")
                         .HasColumnType("nvarchar(max)");
 
@@ -459,6 +462,32 @@ namespace TruckDriverApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Profiles");
+                });
+
+            modelBuilder.Entity("TruckDriverApp.Models.StarRating", b =>
+                {
+                    b.Property<int>("RateId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Facility Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.HasKey("RateId");
+
+                    b.HasIndex("Facility Id");
+
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("TruckDriverApp.Models.Vehicle", b =>
@@ -564,6 +593,13 @@ namespace TruckDriverApp.Migrations
                     b.HasOne("TruckDriverApp.Models.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleId1");
+                });
+
+            modelBuilder.Entity("TruckDriverApp.Models.StarRating", b =>
+                {
+                    b.HasOne("TruckDriverApp.Models.Facility", "Facility")
+                        .WithMany()
+                        .HasForeignKey("Facility Id");
                 });
 #pragma warning restore 612, 618
         }
