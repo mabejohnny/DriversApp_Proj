@@ -8,161 +8,132 @@
     Please Enter In Your Information
 
 </h1>
-<body class="bodyDriverViewFacility">
-</body>
-<h1>ViewFacility</h1>
-
-<div>
-    <h4>Facility</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.State)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZipCode)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OvernightParking)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OvernightParking)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Latitude)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Latitude)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Longitude)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Longitude)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ParkingOptions)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ParkingOptions)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FoodDelivery)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FoodDelivery)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OtherOptions)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OtherOptions)
-        </dd>
-        <dt>
-            class="col-sm-2">
-            <img src="~EmptyStar.png" alt="Star Rating" align="middle" id="1" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
-
-            <img src="~EmptyStar.png" alt="Star Rating" align="middle" id="2" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
-
-            <img src="~EmptyStar.png" alt="Star Rating" align="middle" id="3" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
-
-            <img src="~EmptyStar.png" alt="Star Rating" align="middle" id="4" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
-
-            <img src="~EmptyStar.png" alt="Star Rating" align="middle" id="5" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
-
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DriversLounge)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DriversLounge)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.HasShowers)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.HasShowers)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EntryTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EntryTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ExitTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ExitTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProfileId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProfileId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DriverId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DriverId)
-        </dd>
-    </dl>
-</div>
 <p>
     @Html.ActionLink("Please check in", "CheckDriverIn", new { id = Model.Id })
 </p>
+ &nbsp;&nbsp;
+ &nbsp;&nbsp;
+<hr />
+ &nbsp;&nbsp;
+ &nbsp;&nbsp;
 <p>
     @Html.ActionLink("Have any info to add about this facility?", "CommentReviewProfile", new { id = Model.Id })
 </p>
 
-<div id="map" style="position: fixed; overflow: visible; height: 400px; width: 400px;"></div>
+ &nbsp;&nbsp;
+ &nbsp;&nbsp;
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Address)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.City)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.City)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.State)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.State)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ZipCode)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ZipCode)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.PhoneNumber)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.OvernightParking)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.OvernightParking)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Notes)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Notes)
+    </dd>
+
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.ParkingOptions)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.ParkingOptions)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.FoodDelivery)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.FoodDelivery)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.OtherOptions)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.OtherOptions)
+    </dd>
+    <dt>
+    <dt class="col-sm-2">
+        <img src="~/lib/Images/EmptyStar.png" alt="Star Rating" align="middle" id="1" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
+
+        <img src="~/lib/Images/EmptyStar.png" alt="Star Rating" align="middle" id="2" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
+
+        <img src="~/lib/Images/EmptyStar.png" alt="Star Rating" align="middle" id="3" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
+
+        <img src="~/lib/Images/EmptyStar.png" alt="Star Rating" align="middle" id="4" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
+
+        <img src="~/lib/Images/EmptyStar.png" alt="Star Rating" align="middle" id="5" class="rating" mid="@Html.DisplayFor(model => model.Id)" style="height:20px; width:20px;" />
+
+        @Html.DisplayNameFor(model => model.Rating)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Rating)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.DriversLounge)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.DriversLounge)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.HasShowers)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.HasShowers)
+    </dd>
+
+</dl>
+
+@*<p>
+        @Html.ActionLink("Please check in", "CheckDriverIn", new { id = Model.Id })
+    </p>
+    <p>
+        @Html.ActionLink("Have any info to add about this facility?", "CommentReviewProfile", new { id = Model.Id })
+    </p>*@
+
+ &nbsp;&nbsp;
+ &nbsp;&nbsp;
+
+<div id="map" style="position: fixed; overflow: visible; height: 600px; width: 600px;"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=@TruckDriverApp.APIKeys.GOOGLE_API_KEY&callback=initMap&libraries=&v=weekly"
         defer></script>
@@ -176,6 +147,9 @@
         map.setTilt(45);
     }
 </script>
+
+ &nbsp;&nbsp;
+ &nbsp;&nbsp;
 
 <div id="weather">
     <div id="description"></div>
@@ -217,14 +191,14 @@
 
         $(function () {
 
-            $('#ViewCustomerDetails > tbody  > tr').each(function () {
+            $('#ViewFacility > tbody  > tr').each(function () {
 
                 var av = $(this).find("span.avr").text();
                 if (av != "" || av != null) {
                     // alert(av);
                     // fillRating(parseInt(av));
                     var img = $(this).find("img[id='" + parseInt(av) + "']");
-                    img.attr("src", "FilledStar.png").prevAll("img.rating").attr("src", "FilledStar.png");
+                    img.attr("src", "/lib/Images/FilledStar.png").prevAll("img.rating").attr("src", "/lib/Images/FilledStar.png");
                 }
             });
 
@@ -254,20 +228,23 @@
 
         function giveRating(img, image) {
             img.attr("src", "/" + image)
-                .prevAll("img.rating").attr("src", "/Images/" + image);
+                .prevAll("img.rating").attr("src", "/lib/Images/" + image);
         }
 
         function refilRating(img1) {
             var rt = $(img1).closest('tr').find("span.avr").text();
             var img = $(img1).closest('tr').find("img[id='" + parseInt(rt) + "']");
-            img.attr("src", "FilledStar.png").prevAll("img.rating").attr("src", "FilledStar.png");
+            img.attr("src", "/lib/Images/FilledStar.png").prevAll("img.rating").attr("src", "/lib/Images/FilledStar.png");
 
         }
     </script>
+
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
+
+
+    <div>
+        <a asp-action="Index">Back to Main Menu</a>
+    </div>
+
 }
-
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-

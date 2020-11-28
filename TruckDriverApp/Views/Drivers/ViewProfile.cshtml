@@ -4,16 +4,20 @@
     ViewData["Title"] = "ViewProfile";
 }
 
-<h4 class="text-center text-uppercase">List of employee</h4>
+<h4 class="text-center text-uppercase">Knights of the Road Driver Profile</h4>
 
 
 
 <div>
     <a asp-action="InternalDriverMessage" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Message a Driver</a>
 </div>
+ &nbsp;&nbsp;
+ &nbsp;&nbsp;
 <p>
-    <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
+    <a asp-action="New" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Create A Profile Here!</a>
 </p>
+&nbsp;&nbsp;
+&nbsp;&nbsp;
 <table class="table table-bordered">
     <thead>
         <tr>
@@ -22,27 +26,31 @@
             <th>@Html.DisplayNameFor(model => model.Age)</th>
             <th>@Html.DisplayNameFor(model => model.Position)</th>
             <th>@Html.DisplayNameFor(model => model.AboutMe)</th>
+            <th>@Html.DisplayNameFor(model => model.ProfilePicture)</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var profile in Model)
         {
-            <tr>
-                <td>
-                    <img src="~/images/@profile.ProfilePicture"
-                         class="rounded-circle"
-                         height="40" width="40"
-                         asp-append-version="true" />
-                    @profile.FirstName
-                </td>
-                <td>@profile.Gender</td>
-                <td>@profile.Age</td>
-                <td>@profile.AboutMe</td>
-                <td>@profile.Position</td>
-            </tr>
+        <tr>
+            <td>@profile.FirstName</td>
+            <td>@profile.Gender</td>
+            <td>@profile.Age</td>
+            <td>@profile.AboutMe</td>
+            <td>@profile.Position</td>
+            <td>
+                <img src="~/images/@profile.ProfilePicture"
+                     class="rounded-circle"
+                     height="40" width="40"
+                     asp-append-version="true" />
+                @*@profile.ProfilePicture*@
+            </td>
+        </tr>
         }
     </tbody>
 </table>
+&nbsp;&nbsp;
+&nbsp;&nbsp;
 <div>
     <a asp-action="Index" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back to List</a>
 </div> 

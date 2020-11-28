@@ -34,9 +34,11 @@ namespace TruckDriverApp.Models
         public string Position { get; set; }
 
         [Required(ErrorMessage = "About Me: ")]
+        [Display(Name = "About Me")]
         public string AboutMe { get; set; }
 
         [Required(ErrorMessage = "Please choose profile image")]
+        [Display(Name = "Profile Photo")]
         public string ProfilePicture { get; set; }
 
         public Profile()

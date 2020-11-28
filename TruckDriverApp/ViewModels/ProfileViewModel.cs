@@ -27,6 +27,7 @@ namespace TruckDriverApp.ViewModels
         public string Position { get; set; }
 
         [Required(ErrorMessage = "About Me: ")]
+        [Display(Name = "About Me")]
         public string AboutMe { get; set; }
 
         [Required(ErrorMessage = "Please choose profile image")]

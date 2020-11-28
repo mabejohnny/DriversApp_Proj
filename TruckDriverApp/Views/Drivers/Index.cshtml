@@ -14,33 +14,35 @@
         <form>
             <p class="box">
 
-                @Html.ActionLink("View All Facilities", "AllFacilitys", new { id = Model.Id })
+                @Html.ActionLink("Find Your Facility", "AllFacilitys", new { id = Model.Id })
 
             </p>
+            @*<p class="box">
+            @Html.ActionLink("Create a profile", "New", new { id = Model.Id })
+        </p>*@
             <p class="box">
-                @Html.ActionLink("Your Profile", "ViewProfile", new { id = Model.Id })
+                @Html.ActionLink("View Your Profile", "ViewProfile", new { id = Model.Id })
             </p>
+            <p class="box">
+                @Html.ActionLink("Have Something To Say? Comment Here!", "CommentReviewProfile", new { id = Model.Id })
+            </p>
+            <p class="box">
+                @Html.ActionLink("View Your Vehicles", "ViewVehicles", new { id = Model.Id })
+            </p>
+
             <p class="box">
                 @Html.ActionLink("Edit Your Information", "Edit", new { id = Model.Id })
             </p>
             <p class="box">
                 @Html.ActionLink("Delete your profile", "Delete", new { id = Model.Id })
             </p>
-            <p class="box">
+            @*<p class="box">
                 @Html.ActionLink("Add a vehicle to your account", "AddVehicle", new { id = Model.Id })
-            </p>
-            <p class="box">
-                @Html.ActionLink("Your vehicles", "ViewVehicles", new { id = Model.Id })
-            </p>
-            <p class="box">
+            </p>*@
+            @*<p class="box">
                 @Html.ActionLink("View submitted comments and reviews", "ViewCommentsMade", new { id = Model.Id })
-            </p>
-            <p class="box">
-                @Html.ActionLink("Write a Comment", "ViewProfile", new { id = Model.Id })
-            </p>
-            <p class="box">
-                @Html.ActionLink("Create a profile", "New", new { id = Model.Id })
-            </p>
+            </p>*@
+
         </form>
     </div>
 </body>

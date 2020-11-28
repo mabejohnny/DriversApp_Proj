@@ -394,20 +394,24 @@ namespace TruckDriverApp.Controllers
 
         public ActionResult ViewProfile()
         {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            var profiles = _context.Profiles;
 
-            if (driver == null)
-            {
-                return NotFound();
-            }
-            var profiles = _context.Profiles.Where(c => c.Id == driver.Id);
-
-            if (profiles == null)
-            {
-                return NotFound();
-            }
             return View(profiles);
+
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
+            //if (driver == null)
+            //{
+            //    return NotFound();
+            //}
+            //var profiles = _context.Profiles.Where(c => c.Id == driver.Id);
+
+            //if (profiles == null)
+            //{
+            //    return NotFound();
+            //}
+            //return View();
 
         }
 
