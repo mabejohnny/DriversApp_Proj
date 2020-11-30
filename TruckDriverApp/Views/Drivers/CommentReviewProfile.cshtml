@@ -32,6 +32,27 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <!--<div class="col-sm-2">
+                                <img src="~/css/EmptyStar.png" alt="Rate" align="middle" id="1" class="Rate" mid="@Html.DisplayFor(model => model.Rate)" style="height:20px; width:20px;" />
+
+                                <img src="~/css/EmptyStar.png" alt="Rate" align="middle" id="2" class="Rate" mid="@Html.DisplayFor(model => model.Rate)" style="height:20px; width:20px;" />
+
+                                <img src="~/css/EmptyStar.png" alt="Rate" align="middle" id="3" class="Rate" mid="@Html.DisplayFor(model => model.Rate)" style="height:20px; width:20px;" />
+
+                                <img src="~/css/EmptyStar.png" alt="Rate" align="middle" id="4" class="Rate" mid="@Html.DisplayFor(model => model.Rate)" style="height:20px; width:20px;" />
+
+                                <img src="~/css/EmptyStar.png" alt="Rate" align="middle" id="5" class="Rate" mid="@Html.DisplayFor(model => model.Rate)" style="height:20px; width:20px;" />-->
+
+                                @*<label asp-for="Rate" class="control-label"></label>
+                                <input asp-for="Rate" class="form-control" />
+                                <span asp-validation-for="Rate" class="text-danger"></span>*@
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label asp-for="FacilityComments" class="control-label"></label>
                             <input asp-for="FacilityComments" class="form-control" />
                             <span asp-validation-for="FacilityComments" class="text-danger"></span>
@@ -67,7 +88,57 @@
             var fileName = $(this).val().split("\\").pop();
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
+ 
+        $(function () {
+
+            $('#ViewCustomerDetails > tbody  > tr').each(function () {
+
+                var av = $(this).find("span.avr").text();
+                if (av != "" || av != null) {
+                    // alert(av);
+                    // fillRating(parseInt(av));
+                    var img = $(this).find("img[id='" + parseInt(av) + "']");
+                    img.attr("src", "/css/FilledStar.png").prevAll("img.rating").attr("src", "/css/FilledStar.png");
+                }
+            });
+
+            $("img.rating").mouseover(function () {
+                giveRating($(this), "FilledStar.png");
+                $(this).css("cursor", "pointer");
+            });
+
+            $("img.rating").mouseout(function () {
+                giveRating($(this), "EmptyStar.png");
+                refilRating($(this));
+
+            });
+
+
+            $("img.rating").click(function (e) {
+                $("img.rating").unbind("mouseout mouseover click");
+                $(this).css('color', 'red');
+                //alert(e.currentTarget + ' was clicked!');
+                // call ajax methods to update database
+                var url = "/Drivers/RateFacility?rating=" + parseInt($(this).attr("id")) + "&mid=" + parseInt($(this).attr("mid"));
+                $.post(url, null, function (data) {
+                    $(e.currentTarget).closest('tr').find('div.result').text(data).css('color', 'red') // $("#result").text(data);
+                });
+            });
+        });
+
+        function giveRating(img, image) {
+            img.attr("src", "/lib/Images/" + image)
+                .prevAll("img.rating").attr("src", "/css/" + image);
+        }
+
+        function refilRating(img1) {
+            var rt = $(img1).closest('tr').find("span.avr").text();
+            var img = $(img1).closest('tr').find("img[id='" + parseInt(rt) + "']");
+            img.attr("src", "/css//FilledStar.png").prevAll("img.rating").attr("src", "/css/FilledStar.png");
+
+        }
     </script>
+
 }
 
 

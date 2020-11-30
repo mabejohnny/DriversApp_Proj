@@ -13,7 +13,7 @@
 }
 
 .bodyDriverAllFacilitys {
-    background-image: url("../css/facility.jpg");
+    background-image: url("");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -50,10 +50,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    text-shadow: 20px;
 }
 
 .bodyDriverNew {
-    background-image: url("../css/Images/parkedcars.jpg");
+    background-image: url("../css/TruckRoad.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -93,23 +94,31 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-.bodyContractorCreate {
-    background-image: url("../css/Images/carinemptyparkinglot.jpg");
+.bodyDriverViewProfile {
+    background-image: url("../css/TruckRoad.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.body {
-    background-image: url("../css/Images/carinemptyparkinglot.jpg");
+.bodyDriverAddNewFacility {
+    background-image: url("../css/facility.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.bodyContractorDelete {
-    background-image: url("../css/Images/parkinglot2.jpg");
+.bodyRegister {
+    background-image: url("../css/register.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:crimson;
+    position:center;
+}
+
+.bodyDriverViewProfile {
+    background-image: url("../css/TruckRoad.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -211,7 +220,7 @@
     background-color: white;
 }
 .map {
-    background-position: center;
+    position: center;
 }
 .weather {
     background-position: center;

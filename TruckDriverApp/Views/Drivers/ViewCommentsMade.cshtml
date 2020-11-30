@@ -4,22 +4,25 @@
     ViewData["Title"] = "ViewCommentsMade";
 }
 
-<h1>ViewCommentsMade</h1>
+
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<h4 class="text-center text-uppercase">List of employee</h4>
+<h3 class="text-center text-uppercase">Facility Comments </h3>
+ &nbsp;&nbsp;
+<h5> Brought to you by fellow drivers</h5>
+
 
 <p>
-    <a asp-action="CommentReviewProfile" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add New</a>
+    <a asp-action="CommentReviewProfile" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add a Review</a>
 </p>
 <table class="table table-bordered">
     <thead>
         <tr>
             <th>@Html.DisplayNameFor(model => model.FullName)</th>
             <th>@Html.DisplayNameFor(model => model.FacilityComments)</th>
-            <th>@Html.DisplayNameFor(model => model.AddToFacility)</th>
+            @*<th>@Html.DisplayNameFor(model => model.Rate)</th>*@
         </tr>
     </thead>
     <tbody>
@@ -34,7 +37,7 @@
                     @CommentReview.FullName
                 </td>
                 <td>@CommentReview.FacilityComments</td>
-                <td>@CommentReview.AddToFacility</td>
+                @*<td>@CommentReview.AddToFacility</td>*@
             </tr>
 
         }
@@ -42,5 +45,5 @@
 </table>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Main Menu</a>
 </div>  

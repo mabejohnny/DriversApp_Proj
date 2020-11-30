@@ -21,6 +21,8 @@ namespace TruckDriverApp.ViewModels
         [Display(Name = "Facility Comments")]
         public string FacilityComments { get; set; }
 
+        public int Rate { get; set; }
+
         [Required(ErrorMessage = "Have any images to add to this facility?")]
         [Display(Name = "Facility picture")]
 

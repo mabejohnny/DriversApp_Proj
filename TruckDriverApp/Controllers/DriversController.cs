@@ -468,23 +468,25 @@ namespace TruckDriverApp.Controllers
             return uniqueFileName;
         }
 
-        public ActionResult ViewCommentsMade(int? Id)
+        public ActionResult ViewCommentsMade(int Id)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
 
             if (driver == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Create));
             }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ViewCommentsMade()
+        {
+    
             var comments = _context.CommentReviews;
-
-            if (comments == null)
-            {
-                return NotFound();
-            }
             return View(comments);
-
         }
 
         public ActionResult InternalDriverMessage(int Id)
@@ -494,9 +496,9 @@ namespace TruckDriverApp.Controllers
 
             if (driver == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Create));
             }
-            return View();
+            return View(driver);
         }
 
         [HttpPost]
@@ -506,6 +508,11 @@ namespace TruckDriverApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //[HttpPost]
+        //public ActionResult PostRating(int rating, int mid)
+        //{
+
+        //}
 
 
         //[HttpPost]
@@ -522,7 +529,7 @@ namespace TruckDriverApp.Controllers
 
         //}
 
-       
+
 
 
     }
