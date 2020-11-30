@@ -345,9 +345,11 @@ namespace TruckDriverApp.Controllers
         //}
 
 
+        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> New(ProfileViewModel model)
+        public async Task<IActionResult> New(ProfileViewModel model, int id)
         {
             //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             //var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
@@ -367,7 +369,7 @@ namespace TruckDriverApp.Controllers
                     Position = model.Position,
                     ProfilePicture = uniqueFileName,
                 };
-                 //profile.Id += driver.Id;
+                //profile.id += driver.id
                 _context.Add(profile);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -392,8 +394,12 @@ namespace TruckDriverApp.Controllers
             return uniqueFileName;
         }
 
-        public ActionResult ViewProfile()
+        public ActionResult ViewProfile(int id)
         {
+
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+
             var profiles = _context.Profiles;
 
             return View(profiles);
@@ -437,6 +443,7 @@ namespace TruckDriverApp.Controllers
                     FacilityComments = model.FacilityComments,
                     FacilityPicture = uniqueFileName,
                 };
+
                 _context.Add(commentReview);
                 await _context.SaveChangesAsync();
             }
@@ -500,54 +507,23 @@ namespace TruckDriverApp.Controllers
         }
 
 
-        public ActionResult CheckDriverIn(int Id)
-        {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
-
-            if (driver == null)
-            {
-                return NotFound();
-            }
-            return View(driver);
-
-        }
-
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CheckDriverIn()
-        {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
-            //var facility = _context.Facilitys.Where(c => c.Id == Id);
-
-            return View();
-
-        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult EntryExitTimes()
+        //public async Task<IActionResult> CheckDriverIn(Facility facility, int id)
         //{
+        //    var driver = await _context.Drivers.FindAsync(id);
+        //    var facility = 
 
 
 
+
+        //    return View();
 
         //}
 
-        [HttpPost]
-        public ActionResult PostRating(int rating, int mid)
-        {
-            StarRating rt = new StarRating();
-            rt.Rate = rating;
-            rt.Id = mid;
+       
 
-            _context.Ratings.Add(rt);
-            _context.SaveChanges();
 
-            return Ok();
-
-        }
     }
 }

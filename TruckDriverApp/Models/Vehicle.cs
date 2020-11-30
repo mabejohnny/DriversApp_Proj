@@ -22,13 +22,13 @@ namespace TruckDriverApp.Models
         public int TruckYear { get; set; }
 
         [Display(Name = "Truck Color")]
-        public int TruckColor { get; set; }
+        public string TruckColor { get; set; }
 
         [Display(Name = "Truck License Plate")]
         public int TruckLicensePlate { get; set; }
 
         [Display(Name = "Truck Notes")]
-        public int TruckNotes { get; set; }
+        public string TruckNotes { get; set; }
 
         [Display(Name = "Vehicle Id")]
         public int? VehicleId { get; set; }

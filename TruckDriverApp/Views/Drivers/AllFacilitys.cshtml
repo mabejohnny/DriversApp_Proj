@@ -5,7 +5,7 @@
 }
 <link rel="stylesheet" href="/css/LayoutBySection.css">
 <h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
-    Welcome To Our Facility Locator! 
+    Welcome to the Facility Locator! 
 
 </h1>
 <body class="bodyDriverAllFacilitys">
@@ -55,12 +55,6 @@
                 @Html.DisplayNameFor(model => model.FoodDelivery)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OtherOptions)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.DriversLounge)
             </th>
             <th>
@@ -103,12 +97,6 @@
                     @Html.DisplayFor(modelItem => item.FoodDelivery)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.OtherOptions)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rating)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.DriversLounge)
                 </td>
                 <td>
@@ -116,7 +104,7 @@
                 </td>
                 <td>
                     @*@Html.ActionLink("ViewFacility", "ViewFacility", new[] { item }) |*@
-                    <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a> |
+                    <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a> 
 
 
 
@@ -169,5 +157,5 @@
 </script>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Main Menu</a>
 </div>

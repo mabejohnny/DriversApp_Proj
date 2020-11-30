@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TruckDriverApp.Migrations
 {
-    public partial class @new : Migration
+    public partial class again : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -266,28 +266,6 @@ namespace TruckDriverApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ratings",
-                columns: table => new
-                {
-                    RateId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Rate = table.Column<int>(nullable: false),
-                    IpAddress = table.Column<string>(nullable: true),
-                    Id = table.Column<int>(nullable: false),
-                    FacilityId = table.Column<int>(name: "Facility Id", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Ratings", x => x.RateId);
-                    table.ForeignKey(
-                        name: "FK_Ratings_Facilitys_Facility Id",
-                        column: x => x.FacilityId,
-                        principalTable: "Facilitys",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Drivers",
                 columns: table => new
                 {
@@ -325,12 +303,12 @@ namespace TruckDriverApp.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "f4289355-7fdb-4c2d-8c94-e14fd05e0dc1", "20714252-0e16-4ed4-a322-148f5334defd", "Driver", "DRIVER" });
+                values: new object[] { "e5f24060-0f92-44c1-81c4-0f7b448329ab", "32ad4035-5441-46aa-b6e4-fdd4877e0740", "Driver", "DRIVER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "7f968176-acb9-401d-935e-2a2e428c3fa2", "3c036cf8-4221-4175-91c3-b6e51e54e17e", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "e3350578-764a-4c6b-803a-94f9c4eb1824", "765c2810-6523-41c2-858f-8b056f42d163", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Administrators_IdentityUserId",
@@ -385,11 +363,6 @@ namespace TruckDriverApp.Migrations
                 name: "IX_Drivers_VehicleId1",
                 table: "Drivers",
                 column: "VehicleId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Ratings_Facility Id",
-                table: "Ratings",
-                column: "Facility Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -419,10 +392,10 @@ namespace TruckDriverApp.Migrations
                 name: "Drivers");
 
             migrationBuilder.DropTable(
-                name: "Profiles");
+                name: "Facilitys");
 
             migrationBuilder.DropTable(
-                name: "Ratings");
+                name: "Profiles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -432,9 +405,6 @@ namespace TruckDriverApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Vehicles");
-
-            migrationBuilder.DropTable(
-                name: "Facilitys");
         }
     }
 }

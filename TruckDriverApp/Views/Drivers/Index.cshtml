@@ -5,8 +5,8 @@
 }
 
 <link rel= ="stylesheet" href="/css/LayoutBySection.css">
-<h1 style="margin: 0 auto; justify-content: space-around; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 20px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
-    Please Choose Your Selection
+<h1 style="margin: 0 auto; justify-content: space-around; width: 800px; text-align:center; border: 1px solid black; border-bottom-color: transparent; padding: 20px; margin: 0 auto; background-color: lightslategrey; box-shadow: 5px 5px 5px black;">
+   Professional Driver Portal
 </h1>
 <body class="bodyDriverIndex">
     <link rel="stylesheet" href="/css/LayoutBySection.css">
@@ -23,9 +23,9 @@
             <p class="box">
                 @Html.ActionLink("View Your Profile", "ViewProfile", new { id = Model.Id })
             </p>
-            <p class="box">
+            @*<p class="box">
                 @Html.ActionLink("Have Something To Say? Comment Here!", "CommentReviewProfile", new { id = Model.Id })
-            </p>
+            </p>*@
             <p class="box">
                 @Html.ActionLink("View Your Vehicles", "ViewVehicles", new { id = Model.Id })
             </p>

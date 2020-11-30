@@ -43,9 +43,6 @@ namespace TruckDriverApp.Data
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<CommentReview> CommentReviews { get; set; }
 
-        public DbSet<StarRating> Ratings { get; set; }
-
-      
     }
 }
 

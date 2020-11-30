@@ -48,15 +48,15 @@ namespace TruckDriverApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f4289355-7fdb-4c2d-8c94-e14fd05e0dc1",
-                            ConcurrencyStamp = "20714252-0e16-4ed4-a322-148f5334defd",
+                            Id = "e5f24060-0f92-44c1-81c4-0f7b448329ab",
+                            ConcurrencyStamp = "32ad4035-5441-46aa-b6e4-fdd4877e0740",
                             Name = "Driver",
                             NormalizedName = "DRIVER"
                         },
                         new
                         {
-                            Id = "7f968176-acb9-401d-935e-2a2e428c3fa2",
-                            ConcurrencyStamp = "3c036cf8-4221-4175-91c3-b6e51e54e17e",
+                            Id = "e3350578-764a-4c6b-803a-94f9c4eb1824",
+                            ConcurrencyStamp = "765c2810-6523-41c2-858f-8b056f42d163",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -464,32 +464,6 @@ namespace TruckDriverApp.Migrations
                     b.ToTable("Profiles");
                 });
 
-            modelBuilder.Entity("TruckDriverApp.Models.StarRating", b =>
-                {
-                    b.Property<int>("RateId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("Facility Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("IpAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Rate")
-                        .HasColumnType("int");
-
-                    b.HasKey("RateId");
-
-                    b.HasIndex("Facility Id");
-
-                    b.ToTable("Ratings");
-                });
-
             modelBuilder.Entity("TruckDriverApp.Models.Vehicle", b =>
                 {
                     b.Property<int>("Id")
@@ -593,13 +567,6 @@ namespace TruckDriverApp.Migrations
                     b.HasOne("TruckDriverApp.Models.Vehicle", "Vehicle")
                         .WithMany()
                         .HasForeignKey("VehicleId1");
-                });
-
-            modelBuilder.Entity("TruckDriverApp.Models.StarRating", b =>
-                {
-                    b.HasOne("TruckDriverApp.Models.Facility", "Facility")
-                        .WithMany()
-                        .HasForeignKey("Facility Id");
                 });
 #pragma warning restore 612, 618
         }

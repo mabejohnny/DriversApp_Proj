@@ -205,5 +205,26 @@ namespace TruckDriverApp.Controllers
             }
             return View(facility);
         }
+
+        //// GET: Administrator/CreateTitleForComment
+        //public IActionResult CreateTitleForComment()
+        //{
+        //    return View();
+        //}
+
+        //// POST: Administrator/CreateTitleForComment
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> CreateTitleForComment([Bind("AutoId,Title,Description,Active")] Article article)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(article);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(article);
+        //}
+      
     }
 }

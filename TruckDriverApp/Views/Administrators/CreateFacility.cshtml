@@ -19,6 +19,11 @@
             <span asp-validation-for="Id" class="text-danger"></span>
         </div>*@
             <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
@@ -116,10 +121,10 @@
         </div>*@
             <input type="hidden" asp-for="DriverId" />
             @*<div class="form-group">
-                <label asp-for="DriverId" class="control-label"></label>
-                <input asp-for="DriverId" class="form-control" />
-                <span asp-validation-for="DriverId" class="text-danger"></span>
-            </div>*@
+            <label asp-for="DriverId" class="control-label"></label>
+            <input asp-for="DriverId" class="form-control" />
+            <span asp-validation-for="DriverId" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
