@@ -15,14 +15,15 @@
 </p>
 <hr />
 <p class="box">
-    @Html.ActionLink("What do other drivers have to say? ", "ViewCommentsMade", new { id = Model.Id })
+    @Html.ActionLink("See What other drivers have to say ", "ViewCommentsMade", new { id = Model.Id })
 </p>
 <hr />
  &nbsp;&nbsp;
 @*<p class="box">
         @Html.ActionLink("Rate this facility ", "RateFacility", new { id = Model.Id })
     </p>*@
-
+<h3>Rate This Facility</h3>
+ &nbsp;&nbsp;
 <div class="col-sm-2">
     <img src="~/css/EmptyStar.png" alt="Star Rating" align="middle" id="1" class="rating" mid="@Html.DisplayFor(model => model.Rating)" style="height:20px; width:20px;" />
 
@@ -164,7 +165,7 @@
  &nbsp;&nbsp;
  &nbsp;&nbsp;
 
-<div id="map" style="position: fixed; overflow: visible; height: 600px; width: 600px;"></div>
+<div id="map" style="position: center; overflow: visible; height: 600px; width: 1000px;"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=@TruckDriverApp.APIKeys.GOOGLE_API_KEY&callback=initMap&libraries=&v=weekly"
         defer></script>
@@ -172,7 +173,7 @@
     function initMap() {
        const map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: @Model.Latitude, lng: @Model.Longitude },
-           zoom: 18,
+           zoom: 17,
            mapTypeId: "satellite",
        });
         map.setTilt(45);

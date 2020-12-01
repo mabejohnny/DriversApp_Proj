@@ -472,12 +472,13 @@ namespace TruckDriverApp.Controllers
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            var comments = _context.CommentReviews;
 
             if (driver == null)
             {
                 return RedirectToAction(nameof(Create));
             }
-            return View();
+            return View(comments);
         }
 
         [HttpPost]

@@ -6,14 +6,12 @@
 
 
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <h3 class="text-center text-uppercase">Facility Comments </h3>
  &nbsp;&nbsp;
 <h5> Brought to you by fellow drivers</h5>
 
-
+ &nbsp;&nbsp;
 <p>
     <a asp-action="CommentReviewProfile" class="btn btn-sm btn-primary rounded-0 text-uppercase"><i class="fas fa-plus-circle"></i> Add a Review</a>
 </p>
@@ -22,7 +20,7 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.FullName)</th>
             <th>@Html.DisplayNameFor(model => model.FacilityComments)</th>
-            @*<th>@Html.DisplayNameFor(model => model.Rate)</th>*@
+            <th>@Html.DisplayNameFor(model => model.Rating)</th>
         </tr>
     </thead>
     <tbody>
@@ -37,7 +35,7 @@
                     @CommentReview.FullName
                 </td>
                 <td>@CommentReview.FacilityComments</td>
-                @*<td>@CommentReview.AddToFacility</td>*@
+                <td>@CommentReview.Rating</td>
             </tr>
 
         }
@@ -45,5 +43,5 @@
 </table>
 
 <div>
-    <a asp-action="Index">Back to Main Menu</a>
+    <a asp-action="AllFacilitys">Back to Facilities</a>
 </div>  

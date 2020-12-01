@@ -117,7 +117,7 @@
         }
     </tbody>
 </table>
-<div id="map" style="position: center; overflow: visible; height: 600px; width: 800px;"></div>
+<div id="map" style="position: center; overflow: visible; height: 600px; width: 1200px;"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=@TruckDriverApp.APIKeys.GOOGLE_API_KEY&callback=initMap&libraries=&v=weekly"
         defer></script>
@@ -144,7 +144,7 @@
     function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: @Model.First().Latitude, lng: @Model.First().Longitude },
-            zoom: 10,
+            zoom: 5,
         });
 
 
