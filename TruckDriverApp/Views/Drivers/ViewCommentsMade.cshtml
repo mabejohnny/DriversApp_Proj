@@ -20,7 +20,7 @@
         <tr>
             <th>@Html.DisplayNameFor(model => model.FullName)</th>
             <th>@Html.DisplayNameFor(model => model.FacilityComments)</th>
-            <th>@Html.DisplayNameFor(model => model.Rating)</th>
+            @*<th>@Html.DisplayNameFor(model => model.Rating)</th>*@
         </tr>
     </thead>
     <tbody>
@@ -35,7 +35,7 @@
                     @CommentReview.FullName
                 </td>
                 <td>@CommentReview.FacilityComments</td>
-                <td>@CommentReview.Rating</td>
+                @*<td>@CommentReview.Rating</td>*@
             </tr>
 
         }

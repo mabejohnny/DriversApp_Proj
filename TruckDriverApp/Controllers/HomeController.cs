@@ -33,5 +33,11 @@ namespace TruckDriverApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
+
+        public ActionResult WhoWeAre()
+        {
+            return View();
+        }
     }
 }

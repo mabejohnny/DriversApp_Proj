@@ -4,22 +4,22 @@
     ViewData["Title"] = "SearchByZipCode";
 }
 
-<h1>SearchByZipCode</h1>
+
 <link rel="stylesheet" href="/css/LayoutBySection.css">
 <h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
-    Please Enter In Your Information
+    Your Requested Facility 
 
 </h1>
 <body class="bodyDriverSearchByZipCode">
 </body>
 <p>
-    <a asp-action="Create">Create New</a>
+   
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
@@ -42,12 +42,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Notes)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Latitude)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Longitude)
-            </th>
+     
             <th>
                 @Html.DisplayNameFor(model => model.ParkingOptions)
             </th>
@@ -66,18 +61,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.HasShowers)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EntryTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExitTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProfileId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DriverId)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -86,7 +70,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Address)
@@ -109,12 +93,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Notes)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Latitude)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Longitude)
-                </td>
+            
                 <td>
                     @Html.DisplayFor(modelItem => item.ParkingOptions)
                 </td>
@@ -133,18 +112,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.HasShowers)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EntryTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ExitTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProfileId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DriverId)
-                </td>
+           
+    
                 <td>
                     <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a>
                     @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
@@ -156,5 +125,5 @@
     </tbody>
 </table>
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="AllFacilitys">Back to Facilities</a>
 </div>

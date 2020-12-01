@@ -48,15 +48,15 @@ namespace TruckDriverApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "836d6b21-d683-44e6-afd4-fe65c2953129",
-                            ConcurrencyStamp = "860383d3-5d72-43ec-a55b-d535303a30b2",
+                            Id = "af38464b-6da9-4076-96c3-1ec14549a800",
+                            ConcurrencyStamp = "5fe15196-d945-44b1-8bd9-64592056607f",
                             Name = "Driver",
                             NormalizedName = "DRIVER"
                         },
                         new
                         {
-                            Id = "fc4523d6-ac4c-4fce-b0d7-f58216c5d252",
-                            ConcurrencyStamp = "43afb98e-2cc0-4a2d-ac46-1d852122477f",
+                            Id = "3e530a54-225b-4dfc-b19c-b50282f6649a",
+                            ConcurrencyStamp = "623871e9-c95d-40c5-bdf2-28f67d3a8573",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -404,8 +404,12 @@ namespace TruckDriverApp.Migrations
                     b.Property<int?>("ProfileId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Rating")
-                        .HasColumnType("float");
+                    b.Property<int?>("RateId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Rating")
+                        .HasColumnType("nvarchar(5)")
+                        .HasMaxLength(5);
 
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
@@ -469,15 +473,15 @@ namespace TruckDriverApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("FacilityId")
+                    b.Property<int>("Rate")
                         .HasColumnType("int");
 
-                    b.Property<int>("Rate")
+                    b.Property<int>("facilityId")
                         .HasColumnType("int");
 
                     b.HasKey("RateId");
 
-                    b.HasIndex("FacilityId");
+                    b.HasIndex("facilityId");
 
                     b.ToTable("Ratings");
                 });
@@ -591,7 +595,7 @@ namespace TruckDriverApp.Migrations
                 {
                     b.HasOne("TruckDriverApp.Models.Facility", "facility")
                         .WithMany()
-                        .HasForeignKey("FacilityId")
+                        .HasForeignKey("facilityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

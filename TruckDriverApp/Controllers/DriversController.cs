@@ -470,14 +470,7 @@ namespace TruckDriverApp.Controllers
 
         public ActionResult ViewCommentsMade(int Id)
         {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
             var comments = _context.CommentReviews;
-
-            if (driver == null)
-            {
-                return RedirectToAction(nameof(Create));
-            }
             return View(comments);
         }
 
@@ -490,6 +483,25 @@ namespace TruckDriverApp.Controllers
             return View(comments);
         }
 
+        //[HttpPost]
+        //public ActionResult PostRating(int rating, int mid)
+        //{
+        //    Rating rt = new Rating();
+        //    rt.Rate = rating;
+        //    rt.facilityId = mid;
+
+        //    _context.Ratings.Add(rt);
+        //    _context.SaveChanges();
+
+        //    return Ok();
+        //}
+
+
+        //    public IActionResult Chat()
+        //{
+        //    ViewData["Message"] = "Chat page.";
+        //    return View();
+        //}
         public ActionResult InternalDriverMessage(int Id)
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -509,12 +521,40 @@ namespace TruckDriverApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //[HttpPost]
-        //public ActionResult PostRating(int rating, int mid)
-        //{
+        public ActionResult PostRating()
+        {
+            return View();
+        }
 
-        //}
+        [HttpPost]
+        public ActionResult PostRating(string name)
+        {
 
+            ViewBag.Message = String.Format("Thank you for rating this facility! Leave a review and earn 10 bonus points in our loyalty program");
+            return View();
+
+        }
+
+        public ActionResult CheckDriverIn(int Id)
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var driver = _context.Drivers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            var facilityChoice = _context.Facilitys.Where(c => c.Id == Id).SingleOrDefault();
+
+            return View(facilityChoice);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CheckDriverIn([Bind("EntryTime, ExitTime")] Facility facility)
+        {
+
+            _context.Update(facility);
+            _context.SaveChanges();
+            ViewBag.Message = String.Format("We Thank You! Your Contribution Will Help Future Drivers!");
+            return RedirectToAction(nameof(Index));
+
+        }
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace TruckDriverApp.Hubs
 {
-    public class SmsHub : Hub
+    public class Chat : Hub
+
     {
+        public Task Send(string message)
+        {
+
+            return Clients.All.SendAsync("Send", message);
+        }
     }
 }

@@ -4,18 +4,23 @@
 }
 
 <script>
-<a href="http://~/js/signalr/dist/browser/signalr.js">http://~/js/signalr/dist/browser/signalr.js</a>
-<a href="http://~/js/sms.js">http://~/js/sms.js</a>
+    <a href="http://~/js/signalr/dist/browser/signalr.js">http://~/js/signalr/dist/browser/signalr.js</a>
+        <a href="http://~/js/sms.js">http://~/js/sms.js</a>
 </script>
 <link rel="stylesheet" href="/css/LayoutBySection.css">
 <h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
     Driver Message Center
-
 </h1>
+&nbsp;&nbsp;
+<div class="container">
+    <input type="text" id="txtMessage" />
+    <input type="button" id="sendMessage" value="Send" onclick="sendMessage();" />
+    <div id="DisplayMessages"></div>
+</div>
 <body class="bodyDriverInternalDriverMessage">
 </body>
 
-
+&nbsp;&nbsp;
 
 
 <table class="table" id="messageList">

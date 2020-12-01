@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "PostRating";
+}
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<body>
+    @using (Html.BeginForm("PostRating", "Drivers", FormMethod.Post))
+    {
+        <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+
+    }
+</body>
+</html>   

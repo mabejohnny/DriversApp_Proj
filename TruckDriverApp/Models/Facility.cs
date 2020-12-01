@@ -10,7 +10,7 @@ namespace TruckDriverApp.Models
     public class Facility
     {
         [Key]
-        [Display(Name = "Facility Id")]
+        [Display(Name = "FacilityId")]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -45,8 +45,8 @@ namespace TruckDriverApp.Models
         [Display(Name = "Other Options")]
         public string OtherOptions { get; set; }
 
-        [Display(Name = "Rating")]
-        public double Rating { get; set; }
+        //[Display(Name = "Rating")]
+        //public double Rating { get; set; }
 
         [Display(Name = "Has Drivers Lounge")]
         public bool DriversLounge { get; set; }
@@ -64,5 +64,64 @@ namespace TruckDriverApp.Models
 
         [ForeignKey("Driver Id")]
         public int? DriverId { get; set; }
+        [ForeignKey("RateId")]
+
+        public int? RateId { get; set; }
+
+        [RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]
+        [StringLength(5)]
+        public string Rating { get; set; }
+
+        [NotMapped]
+        public int? RateCount
+        {
+            get
+            {
+                if (ratings == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return ratings.Count;
+                }
+            }
+        }
+        [NotMapped]
+        public decimal RateAvg
+        {
+            get
+            {
+
+                if (ratings == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return (decimal)(RateTotal / RateCount);
+                }
+
+            }
+        }
+
+        [NotMapped]
+        public int? RateTotal
+        {
+            get
+            {
+                if (ratings == null)
+                {
+                    return null;
+                }
+                else
+                    return (ratings.Sum(m => m.Rate));
+            }
+        }
+        [NotMapped]
+        public virtual ICollection<Rating> ratings { get; set; }
+
+
     }
 }
+

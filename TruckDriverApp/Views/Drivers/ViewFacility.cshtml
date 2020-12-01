@@ -19,11 +19,14 @@
 </p>
 <hr />
  &nbsp;&nbsp;
+<p class="box">
+    @Html.ActionLink("Chat with other drivers ", "InternalDriverMessage", new { id = Model.Id })
+</p>
 @*<p class="box">
         @Html.ActionLink("Rate this facility ", "RateFacility", new { id = Model.Id })
     </p>*@
 <h3>Rate This Facility</h3>
- &nbsp;&nbsp;
+    &nbsp;&nbsp;
 <div class="col-sm-2">
     <img src="~/css/EmptyStar.png" alt="Star Rating" align="middle" id="1" class="rating" mid="@Html.DisplayFor(model => model.Rating)" style="height:20px; width:20px;" />
 
@@ -35,8 +38,11 @@
 
     <img src="~/css/EmptyStar.png" alt="Star Rating" align="middle" id="5" class="rating" mid="@Html.DisplayFor(model => model.Rating)" style="height:20px; width:20px;" />
 </div>
-<hr />
- &nbsp;&nbsp;
+<form onSubmit="return confirm('Thank you for your rating! Please review this facility to earn 10 loyalty bonus points!') ">
+    <input type="submit" />
+</form>
+
+    &nbsp;&nbsp;
 <dl class="row">
     <dt class="col-sm-2">
         @Html.DisplayNameFor(model => model.Name)
@@ -155,15 +161,15 @@
 </script>
 
 
-@*<p>
-        @Html.ActionLink("Please check in", "CheckDriverIn", new { id = Model.Id })
-    </p>
     <p>
+        @Html.ActionLink("Please Input Arrival and Departure Times", "CheckDriverIn", new { id = Model.Id })
+    </p>
+    @*<p>
         @Html.ActionLink("Have any info to add about this facility?", "CommentReviewProfile", new { id = Model.Id })
     </p>*@
 
- &nbsp;&nbsp;
- &nbsp;&nbsp;
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
 
 <div id="map" style="position: center; overflow: visible; height: 600px; width: 1000px;"></div>
 
@@ -180,8 +186,8 @@
     }
 </script>
 
- &nbsp;&nbsp;
- &nbsp;&nbsp;
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
 
 @*<div id="weather">
         <div id="description"></div>
@@ -278,4 +284,4 @@
     <a asp-action="Index">Back to Main Menu</a>
 </div>
 
-}
+    }

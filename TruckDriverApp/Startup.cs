@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using TruckDriverApp.Data;
+//using SignalRTest;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -18,6 +19,7 @@ using TruckDriverApp.ActionFilters;
 using TruckDriverApp.Interfaces;
 using TruckDriverApp.Services;
 using TruckDriverApp.Hubs;
+
 
 namespace TruckDriverApp
 {
@@ -74,9 +76,23 @@ namespace TruckDriverApp
             app.UseAuthentication();
             app.UseAuthorization();
 
+            //app.UseMvc(routes =>
+            //{
+
+            //    routes.MapRoute(
+            //    name: "default",
+            //    template: "{controller=Home}/{action=Chat}/{id?}");
+
+            //});
+
+            //app.UseSignalR(routes => {
+
+            //    routes.MapHub("/chat");
+
+            //});
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<SmsHub>("/smsHub");
+                endpoints.MapHub<Chat>("/Chat");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

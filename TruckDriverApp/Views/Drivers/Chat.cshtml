@@ -1,0 +1,31 @@
+﻿@section Scripts {
+
+    <script src="~/js/signalr.js"></script>
+
+    <script>
+let connection = new signalR.HubConnectionBuilder()
+.withUrl("/Chat">)
+.configureLogging(signalR.LogLevel.Information)
+.build();
+
+connection.start();
+
+connection.on('send', (data) => {
+DisplayMessagesDiv = document.getElementById("DisplayMessages");
+DisplayMessagesDiv.innerHTML += "<li>" + data + "</li>";
+});
+
+function sendMessage()
+{
+var msg = document.getElementById("txtMessage").value;
+connection.invoke('send', msg);
+}
+    </script>
+}
+
+<div class="container">
+    <input type="text" id="txtMessage" />
+    <input type="button" id="sendMessage" value="Send" onclick="sendMessage();" />
+    <div id="DisplayMessages"></div>
+</div>
+

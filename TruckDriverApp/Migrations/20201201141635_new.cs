@@ -83,13 +83,14 @@ namespace TruckDriverApp.Migrations
                     ParkingOptions = table.Column<string>(nullable: true),
                     FoodDelivery = table.Column<string>(nullable: true),
                     OtherOptions = table.Column<string>(nullable: true),
-                    Rating = table.Column<double>(nullable: false),
                     DriversLounge = table.Column<bool>(nullable: false),
                     HasShowers = table.Column<bool>(nullable: false),
                     EntryTime = table.Column<DateTime>(nullable: false),
                     ExitTime = table.Column<DateTime>(nullable: false),
                     ProfileId = table.Column<int>(nullable: true),
-                    DriverId = table.Column<int>(nullable: true)
+                    DriverId = table.Column<int>(nullable: true),
+                    RateId = table.Column<int>(nullable: true),
+                    Rating = table.Column<string>(maxLength: 5, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -272,14 +273,14 @@ namespace TruckDriverApp.Migrations
                     RateId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Rate = table.Column<int>(nullable: false),
-                    FacilityId = table.Column<int>(nullable: false)
+                    facilityId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ratings", x => x.RateId);
                     table.ForeignKey(
-                        name: "FK_Ratings_Facilitys_FacilityId",
-                        column: x => x.FacilityId,
+                        name: "FK_Ratings_Facilitys_facilityId",
+                        column: x => x.facilityId,
                         principalTable: "Facilitys",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -323,12 +324,12 @@ namespace TruckDriverApp.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "836d6b21-d683-44e6-afd4-fe65c2953129", "860383d3-5d72-43ec-a55b-d535303a30b2", "Driver", "DRIVER" });
+                values: new object[] { "af38464b-6da9-4076-96c3-1ec14549a800", "5fe15196-d945-44b1-8bd9-64592056607f", "Driver", "DRIVER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "fc4523d6-ac4c-4fce-b0d7-f58216c5d252", "43afb98e-2cc0-4a2d-ac46-1d852122477f", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "3e530a54-225b-4dfc-b19c-b50282f6649a", "623871e9-c95d-40c5-bdf2-28f67d3a8573", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Administrators_IdentityUserId",
@@ -385,9 +386,9 @@ namespace TruckDriverApp.Migrations
                 column: "VehicleId1");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ratings_FacilityId",
+                name: "IX_Ratings_facilityId",
                 table: "Ratings",
-                column: "FacilityId");
+                column: "facilityId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
