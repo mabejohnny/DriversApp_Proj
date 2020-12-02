@@ -447,7 +447,7 @@ namespace TruckDriverApp.Controllers
                 _context.Add(commentReview);
                 await _context.SaveChangesAsync();
             }
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(AllFacilitys));
 
         }
 

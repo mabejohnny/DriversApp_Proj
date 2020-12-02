@@ -5,7 +5,7 @@
 }
 <link rel="stylesheet" href="/css/LayoutBySection.css">
 <h1 style="text-align: center; width: 500px; border: 1px solid black; border-bottom-color: transparent; padding: 50px; margin: 0 auto; background-color: white; box-shadow: 5px 5px 5px black;">
-    Welcome to the Facility Locator! 
+    Welcome to the Facility Locator!
 
 </h1>
 <body class="bodyDriverAllFacilitys">
@@ -21,6 +21,51 @@
 <p>
     <a asp-action="AddNewFacility">Dont see your facility? Let us know!</a>
 </p>
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+<div id="map" style="position: center; overflow: visible; height: 600px; width: 1200px;"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=@TruckDriverApp.APIKeys.GOOGLE_API_KEY&callback=initMap&libraries=&v=weekly"
+        defer></script>
+<script>
+
+    let myLats = [];
+    let myLongs = [];
+    let Ids = [];
+</script>
+@foreach (var item in Model)
+{
+    <script>
+            myLats.push(@item.Latitude)
+        myLongs.push(@item.Longitude)
+        Ids.push(@item.Id)
+    </script>
+}
+
+<script>
+
+    let map;
+
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: @Model.First().Latitude, lng: @Model.First().Longitude },
+            zoom: 5,
+        });
+
+
+            for (let i = 0; i < myLats.length; i++) {
+                new google.maps.Marker({
+                    position: { lat: myLats[i], lng: myLongs[i] },
+                    label: `${Ids[i]}`,
+                    map: map,
+            })
+        }
+
+    }
+</script>
+&nbsp;&nbsp;
+&nbsp;&nbsp;
 <table class="table">
     <thead>
         <tr>
@@ -66,58 +111,58 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OvernightParking)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OvernightParking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.ParkingOptions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FoodDelivery)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DriversLounge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HasShowers)
-            </td>
-            <td>
-                @*@Html.ActionLink("ViewFacility", "ViewFacility", new[] { item }) |*@
-                <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParkingOptions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoodDelivery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DriversLounge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasShowers)
+                </td>
+                <td>
+                    @*@Html.ActionLink("ViewFacility", "ViewFacility", new[] { item }) |*@
+                    <a asp-action="ViewFacility" asp-route-id="@item.Id">View Facility</a>
 
 
 
-                @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
-            </td>
-        </tr>
+                    @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
         }
     </tbody>
 </table>
-<div id="map" style="position: center; overflow: visible; height: 600px; width: 1200px;"></div>
+@*<div id="map" style="position: center; overflow: visible; height: 600px; width: 1200px;"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=@TruckDriverApp.APIKeys.GOOGLE_API_KEY&callback=initMap&libraries=&v=weekly"
         defer></script>
@@ -157,7 +202,7 @@
         }
 
     }
-</script>
+</script>*@
 
 <div>
     <a asp-action="Index">Back to Main Menu</a>

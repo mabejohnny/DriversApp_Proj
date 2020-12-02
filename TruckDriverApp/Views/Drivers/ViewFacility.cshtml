@@ -9,6 +9,9 @@
 
 </h1>
 <hr />
+&nbsp;&nbsp;
+<h3>Estimated Wait Time: 2 Hours and 34 Minutes</h3>
+<hr />
  &nbsp;&nbsp;
 <p class="box">
     @Html.ActionLink("Have something to say? Comment here!", "CommentReviewProfile", new { id = Model.Id })
@@ -38,6 +41,7 @@
 
     <img src="~/css/EmptyStar.png" alt="Star Rating" align="middle" id="5" class="rating" mid="@Html.DisplayFor(model => model.Rating)" style="height:20px; width:20px;" />
 </div>
+&nbsp;&nbsp;
 <form onSubmit="return confirm('Thank you for your rating! Please review this facility to earn 10 loyalty bonus points!') ">
     <input type="submit" />
 </form>
@@ -161,10 +165,10 @@
 </script>
 
 
-    <p>
-        @Html.ActionLink("Please Input Arrival and Departure Times", "CheckDriverIn", new { id = Model.Id })
-    </p>
-    @*<p>
+<p>
+    @Html.ActionLink("Please Input Arrival and Departure Times", "CheckDriverIn", new { id = Model.Id })
+</p>
+@*<p>
         @Html.ActionLink("Have any info to add about this facility?", "CommentReviewProfile", new { id = Model.Id })
     </p>*@
 
