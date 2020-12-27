@@ -471,6 +471,7 @@ namespace TruckDriverApp.Controllers
         public ActionResult ViewCommentsMade(int Id)
         {
             var comments = _context.CommentReviews;
+
             return View(comments);
         }
 
@@ -480,6 +481,7 @@ namespace TruckDriverApp.Controllers
         {
     
             var comments = _context.CommentReviews;
+
             return View(comments);
         }
 
@@ -552,6 +554,7 @@ namespace TruckDriverApp.Controllers
             _context.Update(facility);
             _context.SaveChanges();
             ViewBag.Message = String.Format("We Thank You! Your Contribution Will Help Future Drivers!");
+
             return RedirectToAction(nameof(Index));
 
         }
